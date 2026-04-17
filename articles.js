@@ -27,25 +27,88 @@ function parseFrontmatter(text) {
 
 // Convert markdown body to HTML
 function markdownToHTML(md) {
-  return md
-    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
-    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
-    .replace(/\n\n/g, '</p><p>')
-    .replace(/^(?!<[h|b])/gm, '')
-    .split('\n')
-    .map(line => line.trim())
-    .filter(Boolean)
-    .map(line => {
-      if (line.startsWith('<h') || line.startsWith('<blockquote')) return line;
-      return `<p>${line}</p>`;
-    })
-    .join('\n')
-    .replace(/<p><\/p>/g, '')
-    .replace(/<p>(<h[23]>)/g, '$1')
-    .replace(/(<\/h[23]>)<\/p>/g, '$1');
+  const lines = md.split('\n');
+  let html = '';
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+
+    // H2
+    if (line.startsWith('## ')) {
+      html += `<h2>${line.slice(3)}</h2>\n`;
+      i++; continue;
+    }
+    // H3
+    if (line.startsWith('### ')) {
+      html += `<h3>${line.slice(4)}</h3>\n`;
+      i++; continue;
+    }
+
+    // Pull quote — blockquote followed by attribution line starting with —
+    if (line.startsWith('> ')) {
+      const quote = line.slice(2);
+      let attribution = '';
+      if (lines[i+1] && lines[i+1].startsWith('> — ')) {
+        attribution = lines[i+1].slice(4);
+        i++;
+      } else if (lines[i+1] && lines[i+1].startsWith('— ')) {
+        attribution = lines[i+1].slice(2);
+        i++;
+      }
+      html += `<div class="article-pull-quote">
+        <blockquote>${quote}</blockquote>
+        ${attribution ? `<cite>— ${attribution}</cite>` : ''}
+      </div>\n`;
+      i++; continue;
+    }
+
+    // Data block — lines like: 776,000 m² | Terminal Area
+    if (line.includes(' | ') && lines[i+1] && lines[i+1].includes(' | ')) {
+      const dataItems = [];
+      while (i < lines.length && lines[i].includes(' | ')) {
+        const parts = lines[i].split(' | ');
+        if (parts.length >= 2) {
+          dataItems.push({ value: parts[0].trim(), label: parts[1].trim() });
+        }
+        i++;
+      }
+      if (dataItems.length > 0) {
+        html += `<div class="article-data-block">
+          ${dataItems.map(d => `
+            <div class="data-item">
+              <span class="data-value">${d.value}</span>
+              <span class="data-label">${d.label}</span>
+            </div>`).join('')}
+        </div>\n`;
+      }
+      continue;
+    }
+
+    // Horizontal rule
+    if (line.match(/^---+$/)) {
+      html += `<hr style="border:none;border-top:0.5px solid rgba(0,0,0,0.1);margin:2rem 0">\n`;
+      i++; continue;
+    }
+
+    // Empty line
+    if (line.trim() === '') {
+      i++; continue;
+    }
+
+    // Regular paragraph — collect consecutive non-special lines
+    let para = '';
+    while (i < lines.length && lines[i].trim() !== '' && !lines[i].startsWith('#') && !lines[i].startsWith('>') && !lines[i].match(/^---+$/)) {
+      let l = lines[i]
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>');
+      para += (para ? ' ' : '') + l;
+      i++;
+    }
+    if (para) html += `<p>${para}</p>\n`;
+  }
+
+  return html;
 }
 
 // Format date nicely
