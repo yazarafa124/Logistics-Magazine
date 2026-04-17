@@ -10,18 +10,26 @@ const API_BASE = `https://api.github.com/repos/${REPO}/contents/${ARTICLES_PATH}
 
 // Parse frontmatter from markdown
 function parseFrontmatter(text) {
-  const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  const match = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) return { data: {}, content: text };
-  
+
   const data = {};
-  match[1].split('\n').forEach(line => {
+  const lines = match[1].split('\n');
+  let currentKey = null;
+
+  for (const line of lines) {
+    // Continuation line (starts with spaces) — append to current key
+    if (line.match(/^ +/) && currentKey) {
+      data[currentKey] = (data[currentKey] + ' ' + line.trim()).trim();
+      continue;
+    }
     const colonIdx = line.indexOf(':');
-    if (colonIdx === -1) return;
-    const key = line.slice(0, colonIdx).trim();
+    if (colonIdx === -1) continue;
+    currentKey = line.slice(0, colonIdx).trim();
     const val = line.slice(colonIdx + 1).trim().replace(/^["']|["']$/g, '');
-    data[key] = val;
-  });
-  
+    data[currentKey] = val;
+  }
+
   return { data, content: match[2].trim() };
 }
 
