@@ -13,9 +13,9 @@ Egypt has received three giant quay cranes and six yard cranes at the Safaga 2 m
 
 The delivery of the "super post-panamax" cranes, manufactured by China's Shanghai Zhenhua Heavy Industries (ZPMC), marks a key stage in completing the superstructure for the terminal. The three ship-to-shore (STS) cranes are designed to handle large-capacity vessels to accelerate container turnover, while the six automated rubber-tyred gantry (RTG) cranes will use intelligent systems to organise container positioning and reduce human error, according to al-Wazir.
 
-> \> —The terminal serves as a primary gateway for the development of Upper Egypt — supporting mining activities within the Golden Triangle and facilitating the movement of goods from south to the Red Sea."
-
-— TRANSPORT MINISTER KAMEL AL-WAZIR
+> The terminal serves as a primary gateway for the development of Upper Egypt — supporting mining activities within the Golden Triangle and facilitating the movement of goods from south to the Red Sea."
+>
+> — TRANSPORT MINISTER KAMEL AL-WAZIR
 
 The Safaga 2 terminal, which covers approximately 776,000 square metres with a 1,100-metre quay and a depth of 17 metres, has seen its infrastructure 100% completed by Egyptian companies. The facility is expected to handle approximately 2 million containers and 7 million tonnes of general cargo annually.
 
