@@ -7,10 +7,11 @@ date: 2026-04-17T22:26:40.459Z
 readTime: "3"
 featured: false
 heroImage: /images/uploads/photo-2-1280x720.jpeg
-lead: .
+lead: Egypt has received three giant quay cranes and six yard cranes at the
+  Safaga 2 multipurpose terminal, Transport Minister Kamel al-Wazir announced on
+  Tuesday — marking a pivotal moment in the country's ambition to become a
+  regional logistics hub.
 ---
-Egypt has received three giant quay cranes and six yard cranes at the Safaga 2 multipurpose terminal, Transport Minister Kamel al-Wazir announced on Tuesday — marking a pivotal moment in the country's ambition to become a regional logistics hub.
-
 The delivery of the "super post-panamax" cranes, manufactured by China's Shanghai Zhenhua Heavy Industries (ZPMC), marks a key stage in completing the superstructure for the terminal. The three ship-to-shore (STS) cranes are designed to handle large-capacity vessels to accelerate container turnover, while the six automated rubber-tyred gantry (RTG) cranes will use intelligent systems to organise container positioning and reduce human error, according to al-Wazir.
 
 > The terminal serves as a primary gateway for the development of Upper Egypt — supporting mining activities within the Golden Triangle and facilitating the movement of goods from south to the Red Sea."
