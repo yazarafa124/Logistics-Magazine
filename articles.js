@@ -127,9 +127,11 @@ function slugFromFilename(filename) {
 // Fetch all articles from GitHub
 async function fetchArticles() {
   try {
+    // Try GitHub API first
     const res = await fetch(API_BASE);
-    if (!res.ok) return [];
+    if (!res.ok) throw new Error('API failed');
     const files = await res.json();
+    if (!Array.isArray(files)) throw new Error('Not array');
     const mdFiles = files.filter(f => f.name.endsWith('.md'));
     
     const articles = await Promise.all(mdFiles.map(async file => {
@@ -152,18 +154,50 @@ async function fetchArticles() {
       };
     }));
     
-    // Sort by date, newest first
     return articles.sort((a, b) => new Date(b.date) - new Date(a.date));
   } catch(e) {
-    console.error('Failed to fetch articles:', e);
+    console.warn('GitHub API failed, trying direct fetch:', e);
     return [];
   }
 }
 
-// Fetch single article by slug
+// Fetch single article by slug — tries direct raw URL first
 async function fetchArticleBySlug(slug) {
-  const articles = await fetchArticles();
-  return articles.find(a => a.slug === slug) || null;
+  // Build the expected filename pattern
+  const possibleFiles = [
+    `2026-04-17-${slug}.md`,
+    `2026-04-18-${slug}.md`,
+    `${slug}.md`,
+  ];
+
+  for (const filename of possibleFiles) {
+    try {
+      const url = `${RAW_BASE}/${ARTICLES_PATH}/${filename}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const text = await res.text();
+        const { data, content } = parseFrontmatter(text);
+        return {
+          slug,
+          filename,
+          title: data.title || 'Untitled',
+          category: data.category || 'Intelligence',
+          author: data.author || 'Logistics Magazine',
+          date: data.date || '',
+          readTime: data.readTime || '5 min',
+          featured: data.featured === 'true',
+          heroImage: data.heroImage || null,
+          lead: data.lead || '',
+          content,
+          tags: data.tags ? data.tags.split(',').map(t => t.trim()) : []
+        };
+      }
+    } catch(e) { continue; }
+  }
+
+  // Fallback: search via API
+  const all = await fetchArticles();
+  return all.find(a => a.slug === slug) || null;
 }
 
 // ── RENDER INSIGHTS PAGE ─────────────────────────────────────────────────────
