@@ -1,0 +1,89 @@
+/* ── ARTICLE HERO ─────────────────────────────────────────────────────────── */
+.article-hero {
+  position: relative;
+  height: 70vh;
+  min-height: 500px;
+  margin-top: 118px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.article-hero-image { position: absolute; inset: 0; }
+.article-hero-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #1a2e10 0%, #0A0A0A 100%); display: flex; align-items: center; justify-content: center; }
+.placeholder-label { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.2); border: 0.5px solid rgba(255,255,255,0.1); padding: 0.6rem 1.2rem; }
+.article-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.article-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.88) 100%); }
+.article-hero-content { position: relative; z-index: 2; padding: 3rem 5rem; max-width: 950px; }
+.article-meta-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1rem; }
+.article-category { font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: #F9F9F7; background: #25380E; padding: 0.3rem 0.8rem; }
+.article-meta-dot { color: rgba(249,249,247,0.3); font-size: 0.8rem; }
+.article-read-time { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(249,249,247,0.5); }
+.article-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.12; color: #F9F9F7; margin-bottom: 1.5rem; max-width: 800px; }
+.article-byline { display: flex; align-items: center; gap: 0.8rem; }
+.article-author-avatar { width: 40px; height: 40px; border-radius: 50%; background: #25380E; border: 0.5px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 500; color: rgba(249,249,247,0.7); flex-shrink: 0; }
+.article-author-info { display: flex; flex-direction: column; gap: 0.1rem; }
+.article-author-name { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; color: #F9F9F7; letter-spacing: 0.04em; }
+.article-publish-date { font-family: 'Jost', sans-serif; font-size: 0.65rem; color: rgba(249,249,247,0.4); letter-spacing: 0.06em; }
+
+/* ── LAYOUT ───────────────────────────────────────────────────────────────── */
+.article-layout { display: grid; grid-template-columns: 200px 1fr; gap: 0; max-width: 1160px; margin: 0 auto; padding: 4rem 3rem; background: #F9F9F7; }
+
+/* ── SIDEBAR ──────────────────────────────────────────────────────────────── */
+.article-sidebar { padding-right: 2.5rem; border-right: 0.5px solid rgba(0,0,0,0.08); position: sticky; top: 140px; align-self: start; display: flex; flex-direction: column; gap: 2.5rem; }
+.sidebar-label { font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #aaa; margin-bottom: 0.8rem; }
+.share-links { display: flex; flex-direction: column; gap: 0.4rem; }
+.share-btn { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.08em; color: #0A0A0A; text-decoration: none; padding: 0.5rem 0.8rem; border: 0.5px solid rgba(0,0,0,0.12); background: #fff; transition: background 0.2s, color 0.2s, border-color 0.2s; text-align: center; display: block; }
+.share-btn:hover { background: #25380E; color: #F9F9F7; border-color: #25380E; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tag { font-family: 'Jost', sans-serif; font-size: 0.58rem; letter-spacing: 0.06em; color: #555; background: rgba(0,0,0,0.04); border: 0.5px solid rgba(0,0,0,0.08); padding: 0.25rem 0.5rem; }
+.sidebar-issue-name { font-family: 'Playfair Display', serif; font-size: 0.9rem; color: #0A0A0A; margin-bottom: 0.2rem; }
+.sidebar-issue-date { font-family: 'Jost', sans-serif; font-size: 0.62rem; color: #aaa; }
+
+/* ── BODY TEXT ────────────────────────────────────────────────────────────── */
+.article-body { padding-left: 4rem; max-width: 680px; }
+.article-lead { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 400; line-height: 1.65; color: #0A0A0A; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
+.article-body p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 1.6rem; }
+.article-body h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: #0A0A0A; margin: 2.5rem 0 1rem; padding-top: 2rem; border-top: 0.5px solid rgba(0,0,0,0.08); }
+
+/* PULL QUOTE */
+.article-pull-quote { margin: 2.5rem 0; padding: 2rem 2.5rem; background: #0A0A0A; border-left: 3px solid #25380E; }
+.article-pull-quote blockquote { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-style: italic; line-height: 1.65; color: #F9F9F7; margin-bottom: 0.8rem; }
+.article-pull-quote cite { font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(249,249,247,0.38); font-style: normal; }
+
+/* DATA BLOCK */
+.article-data-block { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 0.5px solid rgba(0,0,0,0.1); margin: 2.5rem 0; }
+.data-item { padding: 1.5rem 1rem; border-right: 0.5px solid rgba(0,0,0,0.08); display: flex; flex-direction: column; gap: 0.3rem; text-align: center; background: #fff; }
+.data-item:last-child { border-right: none; }
+.data-value { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #0A0A0A; }
+.data-label { font-family: 'Jost', sans-serif; font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: #aaa; }
+
+/* ARTICLE FOOTER */
+.article-footer-meta { margin-top: 3rem; padding-top: 2rem; border-top: 0.5px solid rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; }
+.footer-label { font-family: 'Jost', sans-serif; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: #aaa; display: block; margin-bottom: 0.4rem; }
+.footer-source { font-family: 'Jost', sans-serif; font-size: 0.78rem; color: #0A0A0A; }
+.article-share-row .share-links { flex-direction: row; }
+
+/* ── RELATED ──────────────────────────────────────────────────────────────── */
+.related-articles { background: #0A0A0A; padding: 5rem 3rem; }
+.related-inner { max-width: 1160px; margin: 0 auto; }
+.related-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #F9F9F7; margin-bottom: 2.5rem; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 0.5px solid rgba(255,255,255,0.07); }
+.related-card { padding: 2rem; border-right: 0.5px solid rgba(255,255,255,0.07); text-decoration: none; display: flex; flex-direction: column; gap: 0.8rem; transition: background 0.2s; }
+.related-card:last-child { border-right: none; }
+.related-card:hover { background: rgba(255,255,255,0.03); }
+.related-category { font-family: 'Jost', sans-serif; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-bright); }
+.related-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 400; line-height: 1.4; color: #F9F9F7; flex: 1; }
+.related-meta { font-family: 'Jost', sans-serif; font-size: 0.62rem; color: rgba(249,249,247,0.3); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .article-hero { margin-top: 106px; height: 50vh; }
+  .article-hero-content { padding: 2rem 1.5rem; }
+  .article-layout { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+  .article-sidebar { position: static; border-right: none; border-bottom: 0.5px solid rgba(0,0,0,0.08); padding-right: 0; padding-bottom: 2rem; }
+  .article-body { padding-left: 0; padding-top: 2rem; }
+  .article-data-block { grid-template-columns: repeat(2, 1fr); }
+  .related-grid { grid-template-columns: 1fr; }
+  .related-card { border-right: none; border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+  .related-articles { padding: 3rem 1.5rem; }
+}

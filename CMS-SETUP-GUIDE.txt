@@ -1,0 +1,68 @@
+═══════════════════════════════════════════════════════
+  LOGISTICS MAGAZINE — CMS SETUP GUIDE
+  Read this once. Takes 10 minutes. Done forever.
+═══════════════════════════════════════════════════════
+
+STEP 1 — Deploy to Netlify
+───────────────────────────
+1. Go to netlify.com → Log in
+2. Drag the entire logistics-magazine folder onto the Netlify dashboard
+3. Netlify gives you a URL like: https://logistics-magazine.netlify.app
+4. Optionally connect your custom domain in Site Settings → Domain Management
+
+STEP 2 — Enable Netlify Identity
+──────────────────────────────────
+1. In your Netlify dashboard → Site Settings → Identity
+2. Click "Enable Identity"
+3. Under Registration: set to "Invite only" (so only your team can access)
+4. Under Services → Git Gateway: click "Enable Git Gateway"
+
+STEP 3 — Invite Your Team
+───────────────────────────
+1. Identity tab → Invite Users
+2. Enter Mustapha's email (and any editors)
+3. They receive an email → click link → set password → done
+
+STEP 4 — Connect GitHub (required for CMS to save articles)
+─────────────────────────────────────────────────────────────
+1. Push the logistics-magazine folder to a GitHub repo
+2. In Netlify → Site Settings → Build & Deploy → link to that GitHub repo
+3. Set branch to "main"
+4. From now on: CMS publishes → GitHub updates → Netlify rebuilds automatically
+
+STEP 5 — Log Into the CMS
+───────────────────────────
+1. Go to: https://your-site.netlify.app/admin
+2. Log in with your Netlify Identity credentials
+3. You will see:
+   - ARTICLES → Create / Edit / Delete articles
+   - NEWS TICKER → Add/remove ticker headlines
+   - SITE SETTINGS → Update the cover feature, issue number, etc.
+
+HOW TO PUBLISH AN ARTICLE
+───────────────────────────
+1. Admin → Articles → New Article
+2. Fill in: Title, Category, Author, Date, Read Time
+3. Upload a hero image
+4. Write the Lead paragraph (bold intro)
+5. Write the Body using the markdown editor (it's like Word — bold, headings, links all visual)
+6. Add tags
+7. Toggle "Featured on Homepage" to ON if you want it in the Latest Insights section
+8. Click PUBLISH → live within 60 seconds
+
+HOW TO UPDATE THE TICKER
+──────────────────────────
+1. Admin → News Ticker → New Ticker Item
+2. Write the headline (keep it under 15 words)
+3. Toggle Active to ON
+4. Publish — appears on the ticker immediately
+
+COST
+─────
+Netlify Free Plan: 100GB bandwidth/month, 300 build minutes — more than enough to start.
+Netlify CMS: completely free, always.
+GitHub: free.
+
+TOTAL MONTHLY COST TO RUN THE CMS: £0
+
+═══════════════════════════════════════════════════════

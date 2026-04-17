@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Insights — Logistics Magazine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="inner.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<header class="page-header">
+  <div class="section-label">Intelligence Library</div>
+  <h1>Exclusive Insights.</h1>
+  <p>Long-form articles, white papers, and exclusive executive interviews. Every piece is original, commissioned, and written for the sector's decision-makers.</p>
+</header>
+<div id="ticker-placeholder"></div>
+<div class="insights-page-grid" id="insights-page-grid"></div>
+<div id="footer-placeholder"></div>
+<script src="main.js"></script>
+<script src="components.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('insights-page-grid');
+  if (!grid) return;
+  const extended = [
+    ...CONFIG.latestInsights,
+    { category: "Policy", title: "Port Privatisation in Africa: Winners, Losers, and the Missing Regulatory Layer", date: "January 2026", readTime: "13 min" },
+    { category: "Trade Finance", title: "Letters of Credit in a World of Instant Payment: Is the Classic Instrument Dying?", date: "December 2025", readTime: "10 min" },
+    { category: "Infrastructure", title: "Mega-Ports and the Myth of Efficiency: When Scale Becomes a Strategic Liability", date: "December 2025", readTime: "9 min" },
+    { category: "Executive Dialogue", title: "Inside the $4.2B Red Sea Diversification Programme — The Untold Strategy", date: "November 2025", readTime: "16 min" },
+  ];
+  extended.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'insight-page-card reveal';
+    div.style.transitionDelay = `${i * 0.06}s`;
+    div.innerHTML = `
+      <div class="insight-category">${item.category}</div>
+      <h3>${item.title}</h3>
+      <p>${item.date} · ${item.readTime} read</p>
+      <div class="insight-meta"><span>${item.date}</span><span class="meta-dot">·</span><span>${item.readTime} read</span></div>
+      <a href="article.html" class="insight-link">Read Full Article →</a>`;
+    grid.appendChild(div);
+  });
+});
+</script>
+</body>
+</html>

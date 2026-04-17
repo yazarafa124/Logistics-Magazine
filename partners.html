@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Partners — Logistics Magazine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="inner.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<header class="page-header">
+  <div class="section-label">Strategic Partners</div>
+  <h1>The Institutions<br>Behind the Platform.</h1>
+  <p>Logistics Magazine's strategic partners are displayed with integrity and pride. Our editorial decisions remain entirely independent.</p>
+</header>
+
+<section style="padding:5rem 3rem;background:var(--black-2);border-bottom:0.5px solid var(--border)">
+  <div style="max-width:700px" class="reveal">
+    <div class="section-label">Partnership Philosophy</div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--white-dim);line-height:1.8">
+      We do not sell editorial space. We do not allow partners to influence our coverage. What we offer is association — the right to be seen alongside the most credible logistics intelligence platform in the MENA and global market. Our partners understand this distinction, and they respect it.
+    </p>
+  </div>
+</section>
+
+<div class="partners-grid" id="partners-page-grid"></div>
+
+<section style="padding:5rem 3rem;border-top:0.5px solid var(--border)">
+  <div style="max-width:600px" class="reveal">
+    <div class="section-label">Become a Partner</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;margin-bottom:1rem">Partner with Logistics Magazine.</h2>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--white-dim);margin-bottom:2rem;line-height:1.7">
+      If your institution operates at the intersection of logistics, maritime, law, or trade finance — and you believe in intelligence over advertising — we would like to speak with you.
+    </p>
+    <a href="mailto:partnerships@logisticsmagazine.com" class="btn-primary">Enquire About Partnership</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="main.js"></script>
+<script src="components.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('partners-page-grid');
+  if (!grid) return;
+  CONFIG.partners.forEach((p, i) => {
+    const initials = p.split(' ').map(w => w[0]).join('').slice(0, 3);
+    const div = document.createElement('div');
+    div.className = 'partner-card reveal';
+    div.style.transitionDelay = `${i * 0.07}s`;
+    div.innerHTML = `
+      <div class="partner-logo-placeholder"><span>${initials}</span></div>
+      <div class="partner-name">${p}</div>`;
+    grid.appendChild(div);
+  });
+});
+</script>
+</body>
+</html>
