@@ -3,7 +3,7 @@ title: Egypt's Safaga 2 Terminal Receives Giant Cranes as Logistics Hub Project
   Nears Completion
 category: Infrastructure
 author: Daily News Egypt
-date: 2026-04-17T22:26:40.459Z
+date: 2026-04-17T23:12:13.626Z
 readTime: "3"
 featured: false
 heroImage: /images/uploads/photo-2-1280x720.jpeg
