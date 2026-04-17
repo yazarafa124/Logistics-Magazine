@@ -1,0 +1,46 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    folder: "_articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Port Strategy", "Maritime Law", "Executive Dialogue", "Supply Chain", "Green Logistics", "Awards Preview", "Policy", "Infrastructure", "Trade Finance"] }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Read Time", name: "readTime", widget: "string", hint: "e.g. 5 min" }
+      - { label: "Featured Article?", name: "featured", widget: "boolean", default: false }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Lead Paragraph", name: "lead", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Pull Quote", name: "pullQuote", widget: "string", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Breaking News Ticker"
+        name: "ticker"
+        file: "_data/ticker.yml"
+        fields:
+          - label: "Ticker Items"
+            name: "items"
+            widget: "list"
+            field: { label: "Headline", name: "headline", widget: "string" }
+      - label: "Cover Feature"
+        name: "cover"
+        file: "_data/cover.yml"
+        fields:
+          - { label: "Executive Name", name: "name", widget: "string" }
+          - { label: "Title & Organisation", name: "title", widget: "string" }
+          - { label: "Cover Quote", name: "quote", widget: "text" }
+          - { label: "Issue Number", name: "issue", widget: "string" }
+          - { label: "Editorial Intro", name: "intro", widget: "text" }
