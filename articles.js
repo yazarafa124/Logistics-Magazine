@@ -163,14 +163,20 @@ async function fetchArticles() {
 
 // Fetch single article by slug — tries direct raw URL first
 async function fetchArticleBySlug(slug) {
-  // Build the expected filename pattern
-  const possibleFiles = [
-    `2026-04-17-${slug}.md`,
-    `2026-04-18-${slug}.md`,
-    `${slug}.md`,
+  // Build possible filename patterns
+  const today = new Date();
+  const dates = [
+    '2026-04-17',
+    '2026-04-18',
+    today.toISOString().slice(0,10)
   ];
+  
+  const filenames = [...new Set([
+    ...dates.map(d => `${d}-${slug}.md`),
+    `${slug}.md`
+  ])];
 
-  for (const filename of possibleFiles) {
+  for (const filename of filenames) {
     try {
       const url = `${RAW_BASE}/${ARTICLES_PATH}/${filename}`;
       const res = await fetch(url);
@@ -184,7 +190,7 @@ async function fetchArticleBySlug(slug) {
           category: data.category || 'Intelligence',
           author: data.author || 'Logistics Magazine',
           date: data.date || '',
-          readTime: data.readTime || '5 min',
+          readTime: data.readTime ? data.readTime + ' min' : '5 min',
           featured: data.featured === 'true',
           heroImage: data.heroImage || null,
           lead: data.lead || '',
@@ -195,9 +201,39 @@ async function fetchArticleBySlug(slug) {
     } catch(e) { continue; }
   }
 
-  // Fallback: search via API
-  const all = await fetchArticles();
-  return all.find(a => a.slug === slug) || null;
+  // Last resort: GitHub API listing
+  try {
+    const res = await fetch(API_BASE);
+    if (res.ok) {
+      const files = await res.json();
+      if (Array.isArray(files)) {
+        const match = files.find(f => f.name.endsWith('.md') && slugFromFilename(f.name) === slug);
+        if (match) {
+          const raw = await fetch(`${RAW_BASE}/${ARTICLES_PATH}/${match.name}`);
+          if (raw.ok) {
+            const text = await raw.text();
+            const { data, content } = parseFrontmatter(text);
+            return {
+              slug,
+              filename: match.name,
+              title: data.title || 'Untitled',
+              category: data.category || 'Intelligence',
+              author: data.author || 'Logistics Magazine',
+              date: data.date || '',
+              readTime: data.readTime ? data.readTime + ' min' : '5 min',
+              featured: data.featured === 'true',
+              heroImage: data.heroImage || null,
+              lead: data.lead || '',
+              content,
+              tags: data.tags ? data.tags.split(',').map(t => t.trim()) : []
+            };
+          }
+        }
+      }
+    }
+  } catch(e) {}
+
+  return null;
 }
 
 // ── RENDER INSIGHTS PAGE ─────────────────────────────────────────────────────
