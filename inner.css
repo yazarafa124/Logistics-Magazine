@@ -171,3 +171,36 @@
   .partners-grid { grid-template-columns: 1fr; }
   .awards-hero { padding: 120px 1.5rem 60px; }
 }
+
+/* ── DYNAMIC ARTICLE LOADING ─────────────────────────────────────────────── */
+.articles-loading {
+  padding: 4rem 3rem;
+  color: #999;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.articles-empty {
+  padding: 4rem 3rem;
+  color: #aaa;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+}
+.article-loading {
+  padding: 2rem 0;
+  color: #999;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+}
+.loading-bar {
+  width: 60px;
+  height: 2px;
+  background: #25380E;
+  margin-bottom: 1rem;
+  animation: loadPulse 1s ease-in-out infinite;
+}
+@keyframes loadPulse {
+  0%, 100% { opacity: 0.3; width: 60px; }
+  50% { opacity: 1; width: 120px; }
+}
