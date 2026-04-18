@@ -200,6 +200,15 @@
 
 <script src="main.js"></script>
 <script src="components.js"></script>
+<script src="articles.js"></script>
+<script>
+// Load live articles into insights grid if available
+window.addEventListener('load', function() {
+  if (typeof renderHomepageArticles === 'function') {
+    renderHomepageArticles().catch(function() {});
+  }
+});
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   // INSIGHTS GRID
