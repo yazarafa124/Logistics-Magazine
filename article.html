@@ -6,28 +6,28 @@
   <title>Article — Logistics Magazine</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="article.css">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+
 <div id="nav-placeholder"></div>
 
 <section class="article-hero" id="article-hero-dynamic">
   <div class="article-hero-image">
     <div class="article-hero-img-placeholder">
-      <div class="placeholder-label">Loading...</div>
+      <div class="placeholder-label">[ Loading ]</div>
     </div>
     <div class="article-hero-overlay"></div>
   </div>
   <div class="article-hero-content">
     <div class="article-meta-top">
-      <span class="article-category">Loading</span>
+      <span class="article-category">Intelligence</span>
     </div>
-    <h1 class="article-title">Loading article...</h1>
+    <h1 class="article-title">Loading...</h1>
   </div>
 </section>
 
 <div class="article-layout">
-  <aside class="article-sidebar" id="article-sidebar-dynamic">
+  <aside class="article-sidebar">
     <div class="sidebar-share">
       <div class="sidebar-label">Share</div>
       <div class="share-links">
@@ -38,13 +38,12 @@
     </div>
     <div class="sidebar-tags">
       <div class="sidebar-label">Tags</div>
-      <div class="tag-list"></div>
+      <div class="tag-list" id="tag-list"></div>
     </div>
   </aside>
-
   <article class="article-body">
     <div id="article-dynamic-content">
-      <div class="article-loading">Loading...</div>
+      <p style="color:#aaa;font-family:Jost,sans-serif;font-size:0.8rem">Loading article...</p>
     </div>
   </article>
 </div>
@@ -53,18 +52,36 @@
   <div class="related-inner">
     <div class="section-label" style="color:#25380E">Continue Reading</div>
     <h2 class="related-title">Related Intelligence</h2>
-    <div class="related-grid">
-      <div class="related-card" style="opacity:0.3">Loading...</div>
-    </div>
+    <div class="related-grid" id="related-grid"></div>
   </div>
 </section>
 
 <div id="footer-placeholder"></div>
+
+<!-- Load nav/footer first -->
 <script src="main.js"></script>
 <script src="components.js"></script>
+
+<!-- Then load article engine and render -->
 <script src="articles.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', renderArticlePage);
+(function() {
+  function init() {
+    if (typeof renderArticlePage === 'function' && typeof getArticles === 'function') {
+      renderArticlePage();
+    } else {
+      document.getElementById('article-dynamic-content').innerHTML =
+        '<p style="color:red;font-family:Jost,sans-serif">Failed to load article engine. Please refresh.</p>';
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init);
+  }
+})();
 </script>
+
 </body>
 </html>
