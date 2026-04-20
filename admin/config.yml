@@ -1,0 +1,30 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "articles"
+    label: "Articles"
+    files:
+      - label: "All Articles"
+        name: "articles"
+        file: "articles.json"
+        fields:
+          - label: "Articles"
+            name: "root"
+            widget: "list"
+            fields:
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category", name: "category", widget: "select", options: ["Port Strategy", "Maritime Law", "Executive Dialogue", "Supply Chain", "Green Logistics", "Awards Preview", "Policy", "Infrastructure", "Trade Finance"] }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+              - { label: "Read Time", name: "readTime", widget: "string" }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false }
+              - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+              - { label: "Lead", name: "lead", widget: "text" }
+              - { label: "Body", name: "body", widget: "markdown" }
+              - { label: "Tags", name: "tags", widget: "list", required: false }
