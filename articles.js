@@ -8,7 +8,8 @@ async function getArticles() {
   try {
     const res = await fetch('/articles.json?v=' + Date.now());
     if (!res.ok) throw new Error('Could not load articles.json');
-    ARTICLES_CACHE = await res.json();
+    const data = await res.json();
+    ARTICLES_CACHE = data.articles;
     return ARTICLES_CACHE;
   } catch(e) {
     console.error('Article load error:', e);
@@ -79,3 +80,4 @@ async function renderHomepageArticles() {
     grid.appendChild(div);
   });
 }
+  if
