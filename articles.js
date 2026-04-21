@@ -79,5 +79,3 @@ async function renderHomepageArticles() {
     div.innerHTML = '<div class="insight-category">' + article.category + '</div><h3 class="insight-title">' + article.title + '</h3><div class="insight-meta"><span>' + formatDate(article.date) + '</span><span class="meta-dot">·</span><span>' + article.readTime + ' read</span></div><a href="article.html?slug=' + article.slug + '" class="insight-link">Read →</a>';
     grid.appendChild(div);
   });
-}
-  if
