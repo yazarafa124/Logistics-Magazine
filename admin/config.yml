@@ -14,7 +14,7 @@ collections:
         file: "articles.json"
         fields:
           - label: "Articles"
-            name: "root"
+            name: "articles"
             widget: "list"
             fields:
               - { label: "Slug", name: "slug", widget: "string" }
