@@ -1,0 +1,10 @@
+{
+  "events": [
+    { "date": "MAY 14", "city": "SINGAPORE", "title": "Maritime Digital Forum 2026", "desc": "Exploring digital twin adoption and autonomous vessel regulation across Southeast Asian shipping lanes.", "type": "Conference" },
+    { "date": "JUN 02", "city": "ROTTERDAM", "title": "Sustainable Freight 2026", "desc": "The premier European summit on decarbonisation strategies and green port infrastructure investment.", "type": "Summit" },
+    { "date": "JUN 22", "city": "NEW YORK", "title": "Supply Chain Resilience Workshop", "desc": "Closed-door executive session on nearshoring, geopolitical risk, and diversified sourcing strategy.", "type": "Workshop" },
+    { "date": "SEP 10", "city": "MONACO", "title": "Logistics Awards Gala 2026", "desc": "The Gold List awards ceremony celebrating excellence across nine categories of global logistics and maritime trade.", "type": "Awards" },
+    { "date": "OCT 07", "city": "CAIRO", "title": "Egypt Maritime Summit", "desc": "Inaugural high-level dialogue between Egyptian government, port authorities, and international logistics leaders.", "type": "Summit" },
+    { "date": "NOV 18", "city": "SHANGHAI", "title": "Belt & Road Symposium", "desc": "Annual forum on trade route development, infrastructure financing, and Sino-African logistics corridors.", "type": "Forum" }
+  ]
+}
