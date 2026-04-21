@@ -13,7 +13,7 @@ collections:
         name: "articles"
         file: "articles.json"
         fields:
-          - label: "Articles"
+          - label: "Article List"
             name: "articles"
             widget: "list"
             fields:
@@ -28,3 +28,57 @@ collections:
               - { label: "Lead", name: "lead", widget: "text" }
               - { label: "Body", name: "body", widget: "markdown" }
               - { label: "Tags", name: "tags", widget: "list", required: false }
+
+  - name: "site"
+    label: "Site Content"
+    files:
+      - label: "Cover Feature"
+        name: "cover"
+        file: "data/cover.json"
+        fields:
+          - { label: "Executive Name", name: "name", widget: "string" }
+          - { label: "Title & Organisation", name: "title", widget: "string" }
+          - { label: "Cover Quote", name: "quote", widget: "text" }
+          - { label: "Issue", name: "issue", widget: "string" }
+          - { label: "Editorial Intro", name: "intro", widget: "text" }
+          - { label: "Cover Photo", name: "image", widget: "image", required: false }
+
+      - label: "Events"
+        name: "events"
+        file: "data/events.json"
+        fields:
+          - label: "Event List"
+            name: "events"
+            widget: "list"
+            fields:
+              - { label: "Date", name: "date", widget: "string", hint: "e.g. MAY 14" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "desc", widget: "text" }
+              - { label: "Type", name: "type", widget: "select", options: ["Conference", "Summit", "Workshop", "Awards", "Forum", "Seminar"] }
+
+      - label: "Partners"
+        name: "partners"
+        file: "data/partners.json"
+        fields:
+          - label: "Partner List"
+            name: "partners"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Logo", name: "logo", widget: "image", required: false }
+              - { label: "Website", name: "website", widget: "string", required: false }
+
+      - label: "Advisory Board"
+        name: "advisory"
+        file: "data/advisory.json"
+        fields:
+          - label: "Members"
+            name: "members"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title & Organisation", name: "title", widget: "string" }
+              - { label: "Country", name: "country", widget: "string" }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
