@@ -40,7 +40,7 @@ async function initSite() {
       eventsList.innerHTML = '';
       eventsData.events.forEach((ev, i) => {
         const div = document.createElement('div');
-        div.className = 'event-row reveal';
+        div.className = 'event-row';
         div.style.transitionDelay = i * 0.08 + 's';
         div.innerHTML = '<div class="event-date">' + ev.date + '</div><div class="event-city">' + ev.city + '</div><div class="event-info"><h3>' + ev.title + '</h3><p>' + ev.desc + '</p></div><span class="event-type">' + ev.type + '</span>';
         eventsList.appendChild(div);
@@ -52,7 +52,7 @@ async function initSite() {
       partnersGrid.innerHTML = '';
       partnersData.partners.forEach((p, i) => {
         const div = document.createElement('div');
-        div.className = 'partner-card reveal';
+        div.className = 'partner-card';
         div.style.transitionDelay = i * 0.07 + 's';
         const inner = p.logo
           ? '<img src="' + p.logo + '" alt="' + p.name + '" style="max-width:120px;max-height:60px;object-fit:contain"><div class="partner-name">' + p.name + '</div>'
@@ -70,12 +70,20 @@ async function initSite() {
       container.innerHTML = '';
       members.forEach((m, i) => {
         const div = document.createElement('div');
-        div.className = 'advisory-preview-card reveal';
+        const isPreview = container.id === 'advisory-preview';
+        div.className = isPreview ? 'advisory-preview-card' : 'advisory-card';
         div.style.transitionDelay = i * 0.1 + 's';
-        const avatar = m.photo
-          ? '<img src="' + m.photo + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">'
-          : m.name.split(' ').map(n => n[0]).join('').slice(0, 2);
-        div.innerHTML = '<div class="advisory-avatar">' + avatar + '</div><div class="advisory-info"><div class="advisory-name">' + m.name + '</div><div class="advisory-title-text">' + m.title + '</div><div class="advisory-country">' + m.country + '</div></div><a href="' + m.linkedin + '" class="advisory-li" target="_blank">in</a>';
+        if (isPreview) {
+          const avatar = m.photo
+            ? '<img src="' + m.photo + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">'
+            : m.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+          div.innerHTML = '<div class="advisory-avatar">' + avatar + '</div><div class="advisory-info"><div class="advisory-name">' + m.name + '</div><div class="advisory-title-text">' + m.title + '</div><div class="advisory-country">' + m.country + '</div></div><a href="' + m.linkedin + '" class="advisory-li" target="_blank">in</a>';
+        } else {
+          const avatar = m.photo
+            ? '<img src="' + m.photo + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">'
+            : m.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+          div.innerHTML = '<div class="advisory-card-avatar">' + avatar + '</div><div class="advisory-card-name">' + m.name + '</div><div class="advisory-card-title">' + m.title + '</div><div class="advisory-card-country">' + m.country + '</div><a href="' + m.linkedin + '" target="_blank" class="advisory-card-li">View LinkedIn Profile →</a>';
+        }
         container.appendChild(div);
       });
     }
@@ -113,7 +121,7 @@ async function initSite() {
       ];
       issues.forEach((iss, i) => {
         const div = document.createElement('div');
-        div.className = 'issue-preview-card reveal';
+        div.className = 'issue-preview-card';
         div.style.transitionDelay = i * 0.08 + 's';
         div.style.background = iss.color;
         div.innerHTML = '<div class="issue-card-inner"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><a href="issues.html" class="issue-download">Download PDF →</a></div>';
