@@ -2,7 +2,6 @@
 
 function renderNav() {
   return `
-  <!-- LAYER 1: BLACK TOP BAR — Logo + secondary links -->
   <div class="top-bar">
     <div class="top-bar-inner">
       <a href="index.html" class="top-bar-logo">
@@ -19,8 +18,6 @@ function renderNav() {
       </div>
     </div>
   </div>
-
-  <!-- LAYER 2: GREEN NAV BAR — Main links centred, subscribe right -->
   <nav>
     <a href="index.html" class="nav-logo"><img src="logo-4k.png" alt="Logistics Magazine"></a>
     <ul class="nav-links">
@@ -45,8 +42,6 @@ function renderNav() {
       <span></span><span></span><span></span>
     </button>
   </nav>
-
-  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -60,7 +55,15 @@ function renderNav() {
 }
 
 function renderTicker() {
-  const items = CONFIG.ticker;
+  const items = [
+    "Egypt's Red Sea trade volume increases 18% in Q1 2026",
+    "Rotterdam announces €2.4B green port infrastructure investment",
+    "IMO 2026 carbon targets enter enforcement phase",
+    "Suez Canal Authority records highest single-day transit revenue",
+    "Singapore MPA launches autonomous vessel regulatory framework",
+    "Dubai Maritime City expands to new logistics free zone",
+    "West Africa Ports Consortium signs Pan-African trade agreement"
+  ];
   const doubled = [...items, ...items];
   return `
   <div class="ticker-wrap">
