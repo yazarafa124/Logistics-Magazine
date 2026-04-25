@@ -1,7 +1,23 @@
 {
   "members": [
-    { "name": "[Board Member Name]", "title": "[Title, Organisation]", "country": "[Country]", "linkedin": "#" },
-    { "name": "[Board Member Name]", "title": "[Title, Organisation]", "country": "[Country]", "linkedin": "#" },
-    { "name": "[Board Member Name]", "title": "[Title, Organisation]", "country": "[Country]", "linkedin": "#" }
+    {
+      "name": "Mostafa ElShenawy",
+      "title": "Founder / Operations & Strategy Lead",
+      "country": "Egypt",
+      "linkedin": "https://www.linkedin.com/in/mostafa-el-shenawy-745398309?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BxQSS3KceRhe9ww4iInZkQQ%3D%3D#",
+      "photo": "/images/uploads/1770997552177.png"
+    },
+    {
+      "name": "[Board Member Name]",
+      "title": "[Title, Organisation]",
+      "country": "[Country]",
+      "linkedin": "#"
+    },
+    {
+      "name": "[Board Member Name]",
+      "title": "[Title, Organisation]",
+      "country": "[Country]",
+      "linkedin": "#"
+    }
   ]
 }
