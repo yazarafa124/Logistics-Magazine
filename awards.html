@@ -1,7 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logistics Awards — The Gold List 2026</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="inner.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+<header class="awards-hero">
+  <div class="section-label" style="color:var(--gold)">The Gold List 2026</div>
+  <h1>Defining<br><span class="gold-accent">Excellence.</span></h1>
+  <p>Nine categories. One night. The most prestigious recognition in global logistics and maritime trade. Nominations close August 2026.</p>
+  <div style="margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+    <a href="#nominate" class="btn-primary">Nominate Now</a>
+    <a href="events.html" class="btn-ghost">Awards Gala — Monaco, September 2026</a>
+  </div>
+</header>
+<div class="awards-grid" id="awards-page-grid"></div>
+<section class="register-section" id="nominate">
+  <div class="register-inner reveal">
+    <div class="section-label" style="color:var(--gold)">Submit a Nomination</div>
+    <h2>Nominate for the Gold List.</h2>
+    <p>Nominations are open to any professional or organisation operating in the global logistics and maritime trade sector. The advisory board reviews all submissions independently.</p>
+    <div class="register-form">
+      <div class="form-field">
+        <label>Nominee Full Name / Organisation</label>
+        <input type="text" placeholder="Full name or company name">
+      </div>
+      <div class="form-field">
+        <label>Award Category</label>
+        <select>
+          <option>Maritime Lawyer of the Year</option>
+          <option>Logistics Executive of the Year (Private Sector)</option>
+          <option>Excellence in Public Service</option>
+          <option>Rising Star Award (Under 35)</option>
+          <option>Best Shipping Line</option>
+          <option>Best Inland Transport Company</option>
+          <option>Supply Chain Innovation Award</option>
+          <option>Green Logistics Award</option>
+          <option>Lifetime Achievement Award</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Your Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-field">
+        <label>Your Email</label>
+        <input type="email" placeholder="professional@domain.com">
+      </div>
+      <div class="form-field form-full">
+        <label>Justification (Why this nominee?)</label>
+        <input type="text" placeholder="Brief case for this nomination...">
+      </div>
+    </div>
+    <div class="form-submit">
+      <button class="btn-primary">Submit Nomination</button>
+    </div>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
 <script src="main.js"></script>
 <script src="components.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('awards-page-grid');
   if (!grid) return;
   const awards = [
@@ -19,10 +83,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   awards.forEach((award, i) => {
     const isLast = i === awards.length - 1;
     const div = document.createElement('div');
-    div.className = 'award-card reveal' + (isLast ? ' award-lifetime' : '');
+    div.className = 'award-card' + (isLast ? ' award-lifetime' : '');
     div.style.transitionDelay = i * 0.07 + 's';
     div.innerHTML = '<div><div class="award-number">0' + (i+1) + '</div><div class="award-icon">' + icons[i] + '</div><div class="award-title">' + award.title + '</div>' + (award.subtitle ? '<div class="award-subtitle">' + award.subtitle + '</div>' : '') + '<div class="award-desc">' + award.desc + '</div><a href="#nominate" class="award-nominate">Nominate →</a></div>';
     grid.appendChild(div);
   });
 });
 </script>
+</body>
+</html>
