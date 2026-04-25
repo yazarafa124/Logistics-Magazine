@@ -6,118 +6,123 @@ async function loadJSON(path) {
 }
 
 async function initSite() {
-  const [cover, eventsData, partnersData, advisoryData] = await Promise.all([
-    loadJSON('/data/cover.json'),
-    loadJSON('/data/events.json'),
-    loadJSON('/data/partners.json'),
-    loadJSON('/data/advisory.json')
-  ]);
+  try {
+    const [cover, eventsData, partnersData, advisoryData] = await Promise.all([
+      loadJSON('/data/cover.json'),
+      loadJSON('/data/events.json'),
+      loadJSON('/data/partners.json'),
+      loadJSON('/data/advisory.json')
+    ]);
 
-  const heroHeadline = document.querySelector('.hero-headline');
-  const bylineName = document.querySelector('.byline-name');
-  const bylineTitle = document.querySelector('.byline-title');
-  const heroExcerpt = document.querySelector('.hero-excerpt');
-  const kickerText = document.querySelector('.kicker-text');
-  const portraitInitials = document.querySelector('.portrait-initials');
-  const portraitIssue = document.querySelector('.portrait-issue');
+    const heroHeadline = document.querySelector('.hero-headline');
+    const bylineName = document.querySelector('.byline-name');
+    const bylineTitle = document.querySelector('.byline-title');
+    const heroExcerpt = document.querySelector('.hero-excerpt');
+    const kickerText = document.querySelector('.kicker-text');
+    const portraitInitials = document.querySelector('.portrait-initials');
+    const portraitIssue = document.querySelector('.portrait-issue');
 
-  if (heroHeadline) heroHeadline.innerHTML = '<em>' + cover.quote + '</em>';
-  if (bylineName) bylineName.textContent = cover.name;
-  if (bylineTitle) bylineTitle.textContent = cover.title;
-  if (heroExcerpt) heroExcerpt.textContent = cover.intro;
-  if (kickerText) kickerText.textContent = 'Cover Feature · ' + cover.issue;
-  if (portraitInitials) portraitInitials.textContent = cover.name.split(' ').map(w => w[0]).join('').slice(0, 2);
-  if (portraitIssue) portraitIssue.textContent = cover.issue;
+    if (heroHeadline) heroHeadline.innerHTML = '<em>' + cover.quote + '</em>';
+    if (bylineName) bylineName.textContent = cover.name;
+    if (bylineTitle) bylineTitle.textContent = cover.title;
+    if (heroExcerpt) heroExcerpt.textContent = cover.intro;
+    if (kickerText) kickerText.textContent = 'Cover Feature · ' + cover.issue;
+    if (portraitInitials) portraitInitials.textContent = cover.name.split(' ').map(w => w[0]).join('').slice(0, 2);
+    if (portraitIssue) portraitIssue.textContent = cover.issue;
 
-  if (cover.image) {
-    const frame = document.querySelector('.portrait-placeholder');
-    if (frame) frame.innerHTML = '<img src="' + cover.image + '" style="width:100%;height:100%;object-fit:cover">';
-  }
+    if (cover.image) {
+      const frame = document.querySelector('.portrait-placeholder');
+      if (frame) frame.innerHTML = '<img src="' + cover.image + '" style="width:100%;height:100%;object-fit:cover">';
+    }
 
-  const eventsList = document.getElementById('events-list');
-  if (eventsList && eventsData.events) {
-    eventsList.innerHTML = '';
-    eventsData.events.forEach((ev, i) => {
-      const div = document.createElement('div');
-      div.className = 'event-row reveal';
-      div.style.transitionDelay = i * 0.08 + 's';
-      div.innerHTML = '<div class="event-date">' + ev.date + '</div><div class="event-city">' + ev.city + '</div><div class="event-info"><h3>' + ev.title + '</h3><p>' + ev.desc + '</p></div><span class="event-type">' + ev.type + '</span>';
-      eventsList.appendChild(div);
-    });
-  }
+    const eventsList = document.getElementById('events-list');
+    if (eventsList && eventsData.events) {
+      eventsList.innerHTML = '';
+      eventsData.events.forEach((ev, i) => {
+        const div = document.createElement('div');
+        div.className = 'event-row reveal';
+        div.style.transitionDelay = i * 0.08 + 's';
+        div.innerHTML = '<div class="event-date">' + ev.date + '</div><div class="event-city">' + ev.city + '</div><div class="event-info"><h3>' + ev.title + '</h3><p>' + ev.desc + '</p></div><span class="event-type">' + ev.type + '</span>';
+        eventsList.appendChild(div);
+      });
+    }
 
-  const partnersGrid = document.getElementById('partners-page-grid');
-  if (partnersGrid && partnersData.partners) {
-    partnersGrid.innerHTML = '';
-    partnersData.partners.forEach((p, i) => {
-      const div = document.createElement('div');
-      div.className = 'partner-card reveal';
-      div.style.transitionDelay = i * 0.07 + 's';
-      const inner = p.logo
-        ? '<img src="' + p.logo + '" alt="' + p.name + '" style="max-width:120px;max-height:60px;object-fit:contain"><div class="partner-name">' + p.name + '</div>'
-        : '<div class="partner-logo-placeholder"><span>' + p.name.split(' ').map(w => w[0]).join('').slice(0, 3) + '</span></div><div class="partner-name">' + p.name + '</div>';
-      div.innerHTML = inner;
-      if (p.website) { div.style.cursor = 'pointer'; div.onclick = () => window.open(p.website, '_blank'); }
-      partnersGrid.appendChild(div);
-    });
-  }
+    const partnersGrid = document.getElementById('partners-page-grid');
+    if (partnersGrid && partnersData.partners) {
+      partnersGrid.innerHTML = '';
+      partnersData.partners.forEach((p, i) => {
+        const div = document.createElement('div');
+        div.className = 'partner-card reveal';
+        div.style.transitionDelay = i * 0.07 + 's';
+        const inner = p.logo
+          ? '<img src="' + p.logo + '" alt="' + p.name + '" style="max-width:120px;max-height:60px;object-fit:contain"><div class="partner-name">' + p.name + '</div>'
+          : '<div class="partner-logo-placeholder"><span>' + p.name.split(' ').map(w => w[0]).join('').slice(0, 3) + '</span></div><div class="partner-name">' + p.name + '</div>';
+        div.innerHTML = inner;
+        if (p.website) { div.style.cursor = 'pointer'; div.onclick = () => window.open(p.website, '_blank'); }
+        partnersGrid.appendChild(div);
+      });
+    }
 
-  const advPage = document.getElementById('advisory-page-grid');
-  const advPreview = document.getElementById('advisory-preview');
+    const advPage = document.getElementById('advisory-page-grid');
+    const advPreview = document.getElementById('advisory-preview');
 
-  function renderAdvisory(container, members) {
-    container.innerHTML = '';
-    members.forEach((m, i) => {
-      const div = document.createElement('div');
-      div.className = 'advisory-preview-card reveal';
-      div.style.transitionDelay = i * 0.1 + 's';
-      const avatar = m.photo
-        ? '<img src="' + m.photo + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">'
-        : m.name.split(' ').map(n => n[0]).join('').slice(0, 2);
-      div.innerHTML = '<div class="advisory-avatar">' + avatar + '</div><div class="advisory-info"><div class="advisory-name">' + m.name + '</div><div class="advisory-title-text">' + m.title + '</div><div class="advisory-country">' + m.country + '</div></div><a href="' + m.linkedin + '" class="advisory-li" target="_blank">in</a>';
-      container.appendChild(div);
-    });
-  }
+    function renderAdvisory(container, members) {
+      container.innerHTML = '';
+      members.forEach((m, i) => {
+        const div = document.createElement('div');
+        div.className = 'advisory-preview-card reveal';
+        div.style.transitionDelay = i * 0.1 + 's';
+        const avatar = m.photo
+          ? '<img src="' + m.photo + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%">'
+          : m.name.split(' ').map(n => n[0]).join('').slice(0, 2);
+        div.innerHTML = '<div class="advisory-avatar">' + avatar + '</div><div class="advisory-info"><div class="advisory-name">' + m.name + '</div><div class="advisory-title-text">' + m.title + '</div><div class="advisory-country">' + m.country + '</div></div><a href="' + m.linkedin + '" class="advisory-li" target="_blank">in</a>';
+        container.appendChild(div);
+      });
+    }
 
-  if (advPage && advisoryData.members) renderAdvisory(advPage, advisoryData.members);
-  if (advPreview && advisoryData.members) renderAdvisory(advPreview, advisoryData.members.slice(0, 3));
+    if (advPage && advisoryData.members) renderAdvisory(advPage, advisoryData.members);
+    if (advPreview && advisoryData.members) renderAdvisory(advPreview, advisoryData.members.slice(0, 3));
 
-  const awardsPreview = document.getElementById('awards-preview');
-  if (awardsPreview) {
-    const awards = [
-      { title: "Maritime Lawyer of the Year" },
-      { title: "Logistics Executive of the Year", subtitle: "Private Sector" },
-      { title: "Excellence in Public Service", subtitle: "Government & Port Authorities" },
-      { title: "Rising Star Award", subtitle: "Under 35" }
-    ];
-    awards.forEach(a => {
-      const div = document.createElement('div');
-      div.className = 'award-preview-item';
-      div.innerHTML = '<div class="award-preview-title">' + a.title + (a.subtitle ? '<span class="award-preview-sub">' + a.subtitle + '</span>' : '') + '</div>';
-      awardsPreview.appendChild(div);
-    });
-    const more = document.createElement('div');
-    more.className = 'award-preview-more';
-    more.innerHTML = '<a href="awards.html">+ 5 more categories →</a>';
-    awardsPreview.appendChild(more);
-  }
+    const awardsPreview = document.getElementById('awards-preview');
+    if (awardsPreview) {
+      const awards = [
+        { title: "Maritime Lawyer of the Year" },
+        { title: "Logistics Executive of the Year", subtitle: "Private Sector" },
+        { title: "Excellence in Public Service", subtitle: "Government & Port Authorities" },
+        { title: "Rising Star Award", subtitle: "Under 35" }
+      ];
+      awards.forEach(a => {
+        const div = document.createElement('div');
+        div.className = 'award-preview-item';
+        div.innerHTML = '<div class="award-preview-title">' + a.title + (a.subtitle ? '<span class="award-preview-sub">' + a.subtitle + '</span>' : '') + '</div>';
+        awardsPreview.appendChild(div);
+      });
+      const more = document.createElement('div');
+      more.className = 'award-preview-more';
+      more.innerHTML = '<a href="awards.html">+ 5 more categories →</a>';
+      awardsPreview.appendChild(more);
+    }
 
-  const issuesGrid = document.getElementById('issues-grid');
-  if (issuesGrid) {
-    const issues = [
-      { issue: "No. 12", title: "The Architecture of Commerce", date: "April 2026", color: "#1e3a14" },
-      { issue: "No. 11", title: "Beyond the Final Mile", date: "March 2026", color: "#1a2e10" },
-      { issue: "No. 10", title: "Digital Logistics: Beyond Crypto", date: "February 2026", color: "#162608" },
-      { issue: "No. 09", title: "The Decoupling of Global Hubs", date: "January 2026", color: "#111f06" }
-    ];
-    issues.forEach((iss, i) => {
-      const div = document.createElement('div');
-      div.className = 'issue-preview-card reveal';
-      div.style.transitionDelay = i * 0.08 + 's';
-      div.style.background = iss.color;
-      div.innerHTML = '<div class="issue-card-inner"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><a href="issues.html" class="issue-download">Download PDF →</a></div>';
-      issuesGrid.appendChild(div);
-    });
+    const issuesGrid = document.getElementById('issues-grid');
+    if (issuesGrid) {
+      const issues = [
+        { issue: "No. 12", title: "The Architecture of Commerce", date: "April 2026", color: "#1e3a14" },
+        { issue: "No. 11", title: "Beyond the Final Mile", date: "March 2026", color: "#1a2e10" },
+        { issue: "No. 10", title: "Digital Logistics: Beyond Crypto", date: "February 2026", color: "#162608" },
+        { issue: "No. 09", title: "The Decoupling of Global Hubs", date: "January 2026", color: "#111f06" }
+      ];
+      issues.forEach((iss, i) => {
+        const div = document.createElement('div');
+        div.className = 'issue-preview-card reveal';
+        div.style.transitionDelay = i * 0.08 + 's';
+        div.style.background = iss.color;
+        div.innerHTML = '<div class="issue-card-inner"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><a href="issues.html" class="issue-download">Download PDF →</a></div>';
+        issuesGrid.appendChild(div);
+      });
+    }
+
+  } catch(err) {
+    console.error('Site init failed:', err);
   }
 }
 
