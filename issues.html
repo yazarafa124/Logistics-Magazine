@@ -1,42 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Issues — Logistics Magazine</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="inner.css">
-</head>
-<body>
-<div id="nav-placeholder"></div>
-<header class="page-header">
-  <div class="section-label">Digital Archive</div>
-  <h1>All Editions.</h1>
-  <p>Browse, read, or download every issue of Logistics Magazine. Each edition is a curated intelligence document for global sector leaders.</p>
-</header>
-<div class="issues-grid" id="issues-page-grid"></div>
-<div id="footer-placeholder"></div>
 <script src="main.js"></script>
 <script src="components.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('issues-page-grid');
   if (!grid) return;
-  CONFIG.digitalIssues.forEach((iss, i) => {
+  const issues = [
+    { issue: "No. 12", title: "The Architecture of Commerce", date: "April 2026", color: "#1e3a14" },
+    { issue: "No. 11", title: "Beyond the Final Mile", date: "March 2026", color: "#1a2e10" },
+    { issue: "No. 10", title: "Digital Logistics: Beyond Crypto", date: "February 2026", color: "#162608" },
+    { issue: "No. 09", title: "The Decoupling of Global Hubs", date: "January 2026", color: "#111f06" },
+    { issue: "No. 08", title: "Material Ethics: Future Sourcing", date: "December 2025", color: "#0e1a05" },
+    { issue: "No. 07", title: "Beyond Vertical Hubs", date: "November 2025", color: "#0b1503" }
+  ];
+  issues.forEach((iss, i) => {
     const div = document.createElement('div');
     div.className = 'issue-card reveal';
     div.style.background = iss.color;
-    div.style.transitionDelay = `${i * 0.08}s`;
-    div.innerHTML = `
-      <div class="issue-card-content">
-        <div class="issue-number">${iss.issue}</div>
-        <div class="issue-title">${iss.title}</div>
-        <div class="issue-date">${iss.date}</div>
-        <a href="#" class="issue-btn">Download PDF</a>
-      </div>`;
+    div.style.transitionDelay = i * 0.08 + 's';
+    div.innerHTML = '<div class="issue-card-content"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><a href="#" class="issue-btn">Download PDF</a></div>';
     grid.appendChild(div);
   });
 });
 </script>
-</body>
-</html>
