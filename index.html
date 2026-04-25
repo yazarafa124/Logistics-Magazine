@@ -8,13 +8,11 @@
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="home.css">
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
 <div id="nav-placeholder"></div>
 
-<!-- VIDEO HERO -->
 <section class="video-hero">
   <video class="video-bg" autoplay muted loop playsinline>
     <source src="ship.mp4" type="video/mp4">
@@ -29,10 +27,8 @@
   </div>
 </section>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <!-- LEFT: Portrait -->
     <div class="hero-portrait">
       <div class="portrait-frame">
         <div class="portrait-placeholder">
@@ -46,8 +42,6 @@
         <span class="meta-tag">Exclusive Interview</span>
       </div>
     </div>
-
-    <!-- RIGHT: Editorial -->
     <div class="hero-editorial">
       <div class="hero-kicker">
         <span class="kicker-line"></span>
@@ -66,8 +60,6 @@
         <a href="article.html" class="btn-primary">Read the Interview</a>
         <a href="issues.html" class="btn-ghost">View Digital Issue</a>
       </div>
-
-      <!-- NEWSLETTER BOX -->
       <div class="hero-newsletter" id="subscribe">
         <div class="newsletter-inner">
           <p class="newsletter-label">Intelligence, delivered fortnightly</p>
@@ -80,8 +72,6 @@
       </div>
     </div>
   </div>
-
-  <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat-item">
       <span class="stat-value">14,200+</span>
@@ -105,10 +95,8 @@
   </div>
 </section>
 
-<!-- TICKER -->
 <div id="ticker-placeholder"></div>
 
-<!-- ABOUT STRIP -->
 <section class="about-strip">
   <div class="about-strip-inner">
     <div class="about-strip-left reveal">
@@ -140,21 +128,18 @@
   </div>
 </section>
 
-<!-- LATEST INSIGHTS -->
 <section class="insights-section">
   <div class="insights-header reveal">
     <div class="section-label">Latest Intelligence</div>
     <div class="insights-header-right">
-      <a href="article.html" class="insights-all-link">View All Insights →</a>
+      <a href="insights.html" class="insights-all-link">View All Insights →</a>
     </div>
   </div>
-
   <div class="insights-grid" id="insights-grid"></div>
 </section>
 
 <div class="divider"></div>
 
-<!-- DIGITAL ISSUES PREVIEW -->
 <section class="issues-preview">
   <div class="issues-preview-header reveal">
     <div>
@@ -168,7 +153,6 @@
 
 <div class="divider"></div>
 
-<!-- AWARDS TEASER -->
 <section class="awards-teaser">
   <div class="awards-teaser-inner reveal">
     <div class="awards-teaser-left">
@@ -185,7 +169,6 @@
 
 <div class="divider"></div>
 
-<!-- ADVISORY TEASER -->
 <section class="advisory-teaser">
   <div class="advisory-teaser-header reveal">
     <div class="section-label">Editorial Authority</div>
@@ -202,92 +185,9 @@
 <script src="components.js"></script>
 <script src="articles.js"></script>
 <script>
-// Load live articles into insights grid if available
 window.addEventListener('load', function() {
   if (typeof renderHomepageArticles === 'function') {
     renderHomepageArticles().catch(function() {});
-  }
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  // INSIGHTS GRID
-  const insightsGrid = document.getElementById('insights-grid');
-  if (insightsGrid) {
-    CONFIG.latestInsights.forEach((item, i) => {
-      const isFeatured = i === 0;
-      const div = document.createElement('div');
-      div.className = `insight-card reveal ${isFeatured ? 'insight-featured' : ''}`;
-      div.style.transitionDelay = `${i * 0.08}s`;
-      div.innerHTML = `
-        <div class="insight-category">${item.category}</div>
-        <h3 class="insight-title">${item.title}</h3>
-        <div class="insight-meta">
-          <span>${item.date}</span>
-          <span class="meta-dot">·</span>
-          <span>${item.readTime} read</span>
-        </div>
-        <a href="article.html" class="insight-link">Read →</a>
-      `;
-      insightsGrid.appendChild(div);
-    });
-  }
-
-  // ISSUES PREVIEW
-  const issuesGrid = document.getElementById('issues-grid');
-  if (issuesGrid) {
-    CONFIG.digitalIssues.slice(0, 4).forEach((iss, i) => {
-      const div = document.createElement('div');
-      div.className = 'issue-preview-card reveal';
-      div.style.transitionDelay = `${i * 0.08}s`;
-      div.style.background = iss.color;
-      div.innerHTML = `
-        <div class="issue-card-inner">
-          <div class="issue-number">${iss.issue}</div>
-          <div class="issue-title">${iss.title}</div>
-          <div class="issue-date">${iss.date}</div>
-          <a href="issues.html" class="issue-download">Download PDF →</a>
-        </div>
-      `;
-      issuesGrid.appendChild(div);
-    });
-  }
-
-  // AWARDS PREVIEW
-  const awardsPreview = document.getElementById('awards-preview');
-  if (awardsPreview) {
-    CONFIG.awards.slice(0, 4).forEach(a => {
-      const div = document.createElement('div');
-      div.className = 'award-preview-item';
-      div.innerHTML = `
-        <div class="award-preview-title">${a.title}${a.subtitle ? `<span class="award-preview-sub">${a.subtitle}</span>` : ''}</div>
-      `;
-      awardsPreview.appendChild(div);
-    });
-    const more = document.createElement('div');
-    more.className = 'award-preview-more';
-    more.innerHTML = `<a href="awards.html">+ 5 more categories →</a>`;
-    awardsPreview.appendChild(more);
-  }
-
-  // ADVISORY PREVIEW
-  const advPreview = document.getElementById('advisory-preview');
-  if (advPreview) {
-    CONFIG.advisoryBoard.slice(0, 3).forEach((m, i) => {
-      const div = document.createElement('div');
-      div.className = 'advisory-preview-card reveal';
-      div.style.transitionDelay = `${i * 0.1}s`;
-      div.innerHTML = `
-        <div class="advisory-avatar">${m.name.split(' ').map(n => n[0]).join('').slice(0,2)}</div>
-        <div class="advisory-info">
-          <div class="advisory-name">${m.name}</div>
-          <div class="advisory-title-text">${m.title}</div>
-          <div class="advisory-country">${m.country}</div>
-        </div>
-        <a href="${m.linkedin}" class="advisory-li" target="_blank">in</a>
-      `;
-      advPreview.appendChild(div);
-    });
   }
 });
 </script>
