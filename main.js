@@ -117,7 +117,7 @@ async function initSite() {
       div.className = 'issue-preview-card';
       div.style.background = '#1e3a14';
       div.style.cursor = 'pointer';
-      div.style.backgroundImage = 'url(/images/uploads/screenshot-2026-04-26-at-11.26.59%20p.m..png)';
+      div.style.backgroundImage = 'url(/images/uploads/magazine-cover-01.png)';
       div.style.backgroundSize = 'cover';
       div.style.backgroundPosition = 'center top';
       div.onclick = () => window.location.href = 'issues.html';
