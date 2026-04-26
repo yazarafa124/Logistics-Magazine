@@ -14,7 +14,7 @@ function renderNav() {
         </a>
         <a href="partners.html" class="top-bar-link">Partners</a>
         <a href="advisory.html" class="top-bar-link">Advisory Board</a>
-        <a href="#contact" class="top-bar-link">Contact Us</a>
+        <a href="contact.html" class="top-bar-link">Contact Us</a>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ function renderNav() {
         </div>
       </li>
       <li><a href="issues.html">The Magazine</a></li>
-      <li><a href="insights.html">Insights</a></li>
+      <li><a href="insights.html">Interviews</a></li>
       <li><a href="events.html">Events</a></li>
       <li><a href="awards.html">Awards 2026</a></li>
     </ul>
@@ -48,9 +48,10 @@ function renderNav() {
     <a href="advisory.html" style="font-size:1.2rem;padding-left:1rem;opacity:0.6">Advisory Board</a>
     <a href="partners.html" style="font-size:1.2rem;padding-left:1rem;opacity:0.6">Strategic Partners</a>
     <a href="issues.html">The Magazine</a>
-    <a href="insights.html">Insights</a>
+    <a href="insights.html">Interviews</a>
     <a href="events.html">Events</a>
     <a href="awards.html">Awards 2026</a>
+    <a href="contact.html">Contact</a>
   </div>`;
 }
 
@@ -86,7 +87,7 @@ function renderFooter() {
         <h4>Platform</h4>
         <ul>
           <li><a href="issues.html">The Magazine</a></li>
-          <li><a href="insights.html">Insights</a></li>
+          <li><a href="insights.html">Interviews</a></li>
           <li><a href="awards.html">Awards 2026</a></li>
           <li><a href="events.html">Events & Training</a></li>
         </ul>
@@ -97,13 +98,13 @@ function renderFooter() {
           <li><a href="about.html">About Us</a></li>
           <li><a href="advisory.html">Advisory Board</a></li>
           <li><a href="partners.html">Partners</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Subscribe</h4>
         <ul>
-          <li><a href="#">Newsletter</a></li>
+          <li><a href="#subscribe">Newsletter</a></li>
           <li><a href="#">LinkedIn</a></li>
           <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Terms of Use</a></li>
