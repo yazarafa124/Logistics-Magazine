@@ -117,6 +117,9 @@ async function initSite() {
       div.className = 'issue-preview-card';
       div.style.background = '#1e3a14';
       div.style.cursor = 'pointer';
+      div.style.backgroundImage = 'url(/images/uploads/screenshot-2026-04-26-at-11.26.59%20p.m..png)';
+      div.style.backgroundSize = 'cover';
+      div.style.backgroundPosition = 'center top';
       div.onclick = () => window.location.href = 'issues.html';
       div.innerHTML = '<div class="issue-card-inner"><div class="issue-number">No. 01</div><div class="issue-title">Logistics in the Canal Region</div><div class="issue-date">May 2026</div><a href="issues.html" class="issue-download">Read Now →</a></div>';
       issuesGrid.appendChild(div);
