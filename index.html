@@ -32,10 +32,10 @@
     <div class="hero-portrait">
       <div class="portrait-frame">
         <div class="portrait-placeholder">
-          <div class="portrait-initials">AR</div>
+          <div class="portrait-initials">KW</div>
         </div>
         <div class="portrait-label">
-          <span class="portrait-issue">Feature — April 2026</span>
+          <span class="portrait-issue">Feature — May 2026</span>
         </div>
       </div>
       <div class="portrait-meta">
@@ -45,46 +45,49 @@
     <div class="hero-editorial">
       <div class="hero-kicker">
         <span class="kicker-line"></span>
-        <span class="kicker-text">Cover Feature · Issue No. [X]</span>
+        <span class="kicker-text">Cover Feature · Issue No. 01 · May 2026</span>
       </div>
       <h1 class="hero-headline">
-        <em>[Insert cover quote from featured executive here]</em>
+        <em>"Egypt is Not Just a Corridor — It is a Destination"</em>
       </h1>
       <div class="hero-byline">
-        <span class="byline-name">[Feature Executive Name]</span>
+        <span class="byline-name">H.E. Kamel El-Wazir</span>
         <span class="byline-sep">·</span>
-        <span class="byline-title">[Title, Organisation]</span>
+        <span class="byline-title">Minister of Transport and Industry, Egypt</span>
       </div>
-      <p class="hero-excerpt">[Brief editorial intro to the cover interview — 2–3 sentences summarising why this person and why now.]</p>
+      <p class="hero-excerpt">Egypt's Minister of Transport sits at the centre of one of the most ambitious infrastructure transformations in the Arab world. In this exclusive interview, he speaks candidly about the Safaga corridor, Egypt's role as a global logistics hub, and what the next decade demands from the region's leaders.</p>
       <div class="hero-actions">
-        <a href="article.html" class="btn-primary">Read the Interview</a>
+        <a href="article.html?slug=kamel-el-wazir-egypts-infrastructure-vision-2026" class="btn-primary">Read the Interview</a>
         <a href="issues.html" class="btn-ghost">View Digital Issue</a>
       </div>
       <div class="hero-newsletter" id="subscribe">
         <div class="newsletter-inner">
           <p class="newsletter-label">Intelligence, delivered fortnightly</p>
-          <div class="newsletter-form">
-            <input type="email" placeholder="Your professional email address" class="newsletter-input">
-            <button class="newsletter-btn">Subscribe</button>
-          </div>
-          <p class="newsletter-sub">14,200+ executives, lawyers & decision-makers subscribe. No noise.</p>
+          <form name="subscribe" method="POST" data-netlify="true" style="display:contents">
+            <input type="hidden" name="form-name" value="subscribe">
+            <div class="newsletter-form">
+              <input type="email" name="email" required placeholder="Your professional email address" class="newsletter-input">
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </div>
+          </form>
+          <p class="newsletter-sub">Join executives, lawyers & decision-makers. No noise.</p>
         </div>
       </div>
     </div>
   </div>
   <div class="stats-bar">
     <div class="stat-item">
-      <span class="stat-value">14,200+</span>
-      <span class="stat-label">Global Subscribers</span>
+      <span class="stat-value">500K+</span>
+      <span class="stat-label">Total Reads</span>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <span class="stat-value">68</span>
-      <span class="stat-label">Nations Reached</span>
+      <span class="stat-value">3</span>
+      <span class="stat-label">Countries Reached</span>
     </div>
     <div class="stat-divider"></div>
     <div class="stat-item">
-      <span class="stat-value">240+</span>
+      <span class="stat-value">32+</span>
       <span class="stat-label">Exclusive Interviews</span>
     </div>
     <div class="stat-divider"></div>
@@ -130,9 +133,9 @@
 
 <section class="insights-section">
   <div class="insights-header reveal">
-    <div class="section-label">Latest Intelligence</div>
+    <div class="section-label">Latest Interviews</div>
     <div class="insights-header-right">
-      <a href="insights.html" class="insights-all-link">View All Insights →</a>
+      <a href="insights.html" class="insights-all-link">View All Interviews →</a>
     </div>
   </div>
   <div class="insights-grid" id="insights-grid"></div>
