@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Logistics Magazine</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="inner.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<header class="page-header">
+  <div class="section-label">Get In Touch</div>
+  <h1>Contact Us.</h1>
+  <p>For editorial enquiries, partnership opportunities, or general questions — we are here.</p>
+</header>
+
+<section style="padding:5rem 3rem;background:#F9F9F7;border-bottom:0.5px solid rgba(0,0,0,0.08)">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;max-width:1100px">
+    <div class="reveal">
+      <div class="section-label" style="color:#25380E">Direct Contact</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#0A0A0A;margin-bottom:2rem">Reach us directly.</h2>
+      <div style="display:flex;flex-direction:column;gap:0;border:0.5px solid rgba(0,0,0,0.08)">
+        <div style="padding:1.8rem 2rem;border-bottom:0.5px solid rgba(0,0,0,0.08);background:#fff">
+          <div style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#25380E;margin-bottom:0.4rem">Phone</div>
+          <a href="tel:+201061269984" style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#0A0A0A;text-decoration:none">+20 106 126 9984</a>
+        </div>
+        <div style="padding:1.8rem 2rem;border-bottom:0.5px solid rgba(0,0,0,0.08);background:#fff">
+          <div style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#25380E;margin-bottom:0.4rem">Email — Editorial</div>
+          <a href="mailto:editorial@logisticsmagazine.com" style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#0A0A0A;text-decoration:none">editorial@logisticsmagazine.com</a>
+        </div>
+        <div style="padding:1.8rem 2rem;border-bottom:0.5px solid rgba(0,0,0,0.08);background:#fff">
+          <div style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#25380E;margin-bottom:0.4rem">Email — Partnerships</div>
+          <a href="mailto:partnerships@logisticsmagazine.com" style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#0A0A0A;text-decoration:none">partnerships@logisticsmagazine.com</a>
+        </div>
+        <div style="padding:1.8rem 2rem;background:#fff">
+          <div style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:#25380E;margin-bottom:0.4rem">Based In</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#0A0A0A">Egypt · UAE · KSA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="section-label" style="color:#25380E">Send a Message</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#0A0A0A;margin-bottom:2rem">Write to us.</h2>
+      <form name="contact" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:1px;background:rgba(0,0,0,0.08);border:0.5px solid rgba(0,0,0,0.08)">
+        <input type="hidden" name="form-name" value="contact">
+        <div style="background:#fff;padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:0.3rem">
+          <label style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#999">Full Name</label>
+          <input type="text" name="name" required placeholder="Your full name" style="background:transparent;border:none;font-family:'Jost',sans-serif;font-size:0.95rem;color:#0A0A0A;outline:none;padding:0">
+        </div>
+        <div style="background:#fff;padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:0.3rem">
+          <label style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#999">Email Address</label>
+          <input type="email" name="email" required placeholder="professional@domain.com" style="background:transparent;border:none;font-family:'Jost',sans-serif;font-size:0.95rem;color:#0A0A0A;outline:none;padding:0">
+        </div>
+        <div style="background:#fff;padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:0.3rem">
+          <label style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#999">Subject</label>
+          <select name="subject" style="background:transparent;border:none;font-family:'Jost',sans-serif;font-size:0.95rem;color:#0A0A0A;outline:none;padding:0">
+            <option>Editorial Enquiry</option>
+            <option>Partnership Opportunity</option>
+            <option>Advisory Board</option>
+            <option>Events & Training</option>
+            <option>General</option>
+          </select>
+        </div>
+        <div style="background:#fff;padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:0.3rem">
+          <label style="font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#999">Message</label>
+          <textarea name="message" required rows="5" placeholder="Your message..." style="background:transparent;border:none;font-family:'Jost',sans-serif;font-size:0.95rem;color:#0A0A0A;outline:none;padding:0;resize:none"></textarea>
+        </div>
+        <div style="background:#fff;padding:1.2rem 1.5rem">
+          <button type="submit" class="btn-primary" style="width:100%;text-align:center;cursor:pointer">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="main.js"></script>
+<script src="components.js"></script>
+</body>
+</html>
