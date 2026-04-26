@@ -6,36 +6,124 @@
   <title>Digital Issues — Logistics Magazine</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="inner.css">
+  <style>
+    .email-gate-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .email-gate-box {
+      background: #111;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      padding: 3rem;
+      max-width: 480px;
+      width: 100%;
+    }
+    .email-gate-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #F9F9F7;
+      margin-bottom: 0.5rem;
+    }
+    .email-gate-box p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: rgba(249,249,247,0.5);
+      margin-bottom: 1.5rem;
+    }
+    .email-gate-box input {
+      width: 100%;
+      background: #1a1a1a;
+      border: 0.5px solid rgba(255,255,255,0.1);
+      color: #F9F9F7;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.9rem 1.2rem;
+      outline: none;
+      margin-bottom: 1px;
+      display: block;
+    }
+    .email-gate-box button {
+      width: 100%;
+      margin-top: 1px;
+    }
+    .email-gate-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 <div id="nav-placeholder"></div>
+
 <header class="page-header">
   <div class="section-label">Digital Archive</div>
   <h1>All Editions.</h1>
   <p>Browse, read, or download every issue of Logistics Magazine. Each edition is a curated intelligence document for global sector leaders.</p>
 </header>
+
 <div class="issues-grid" id="issues-page-grid"></div>
+
+<div id="email-gate" class="email-gate-overlay" style="display:none">
+  <div class="email-gate-box" style="position:relative">
+    <button class="email-gate-close" onclick="document.getElementById('email-gate').style.display='none'">×</button>
+    <div class="section-label" style="color:#4a7c35">Access the Issue</div>
+    <h2>Read the Magazine.</h2>
+    <p>Enter your professional email to access the full digital edition.</p>
+    <form name="magazine-access" method="POST" data-netlify="true" onsubmit="handleMagazineAccess(event)">
+      <input type="hidden" name="form-name" value="magazine-access">
+      <input type="email" name="email" required placeholder="professional@domain.com">
+      <button type="submit" class="btn-primary" style="margin-top:0.8rem;width:100%;text-align:center;cursor:pointer">Access Now →</button>
+    </form>
+  </div>
+</div>
+
 <div id="footer-placeholder"></div>
 <script src="main.js"></script>
 <script src="components.js"></script>
 <script>
+function openMagazine() {
+  document.getElementById('email-gate').style.display = 'flex';
+}
+
+function handleMagazineAccess(e) {
+  e.preventDefault();
+  const email = e.target.email.value;
+  if (email) {
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ 'form-name': 'magazine-access', email }).toString()
+    });
+    document.getElementById('email-gate').style.display = 'none';
+    window.open('magazine.html', '_blank');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('issues-page-grid');
   if (!grid) return;
   const issues = [
-    { issue: "No. 12", title: "The Architecture of Commerce", date: "April 2026", color: "#1e3a14" },
-    { issue: "No. 11", title: "Beyond the Final Mile", date: "March 2026", color: "#1a2e10" },
-    { issue: "No. 10", title: "Digital Logistics: Beyond Crypto", date: "February 2026", color: "#162608" },
-    { issue: "No. 09", title: "The Decoupling of Global Hubs", date: "January 2026", color: "#111f06" },
-    { issue: "No. 08", title: "Material Ethics: Future Sourcing", date: "December 2025", color: "#0e1a05" },
-    { issue: "No. 07", title: "Beyond Vertical Hubs", date: "November 2025", color: "#0b1503" }
+    { issue: "No. 01", title: "Logistics in the Canal Region", date: "May 2026", color: "#1e3a14" }
   ];
-  issues.forEach((iss, i) => {
+  issues.forEach((iss) => {
     const div = document.createElement('div');
     div.className = 'issue-card';
     div.style.background = iss.color;
-    div.style.transitionDelay = i * 0.08 + 's';
-    div.innerHTML = '<div class="issue-card-content"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><a href="#" class="issue-btn">Download PDF</a></div>';
+    div.style.cursor = 'pointer';
+    div.onclick = openMagazine;
+    div.innerHTML = '<div class="issue-card-content"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><button onclick="event.stopPropagation();openMagazine()" class="issue-btn">Read Now</button></div>';
     grid.appendChild(div);
   });
 });
