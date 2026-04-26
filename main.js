@@ -113,20 +113,13 @@ async function initSite() {
 
     const issuesGrid = document.getElementById('issues-grid');
     if (issuesGrid) {
-      const issues = [
-        { issue: "No. 12", title: "The Architecture of Commerce", date: "April 2026", color: "#1e3a14" },
-        { issue: "No. 11", title: "Beyond the Final Mile", date: "March 2026", color: "#1a2e10" },
-        { issue: "No. 10", title: "Digital Logistics: Beyond Crypto", date: "February 2026", color: "#162608" },
-        { issue: "No. 09", title: "The Decoupling of Global Hubs", date: "January 2026", color: "#111f06" }
-      ];
-      issues.forEach((iss, i) => {
-        const div = document.createElement('div');
-        div.className = 'issue-preview-card';
-        div.style.transitionDelay = i * 0.08 + 's';
-        div.style.background = iss.color;
-        div.innerHTML = '<div class="issue-card-inner"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><a href="issues.html" class="issue-download">Download PDF →</a></div>';
-        issuesGrid.appendChild(div);
-      });
+      const div = document.createElement('div');
+      div.className = 'issue-preview-card';
+      div.style.background = '#1e3a14';
+      div.style.cursor = 'pointer';
+      div.onclick = () => window.location.href = 'issues.html';
+      div.innerHTML = '<div class="issue-card-inner"><div class="issue-number">No. 01</div><div class="issue-title">Logistics in the Canal Region</div><div class="issue-date">May 2026</div><a href="issues.html" class="issue-download">Read Now →</a></div>';
+      issuesGrid.appendChild(div);
     }
 
   } catch(err) {
