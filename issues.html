@@ -90,9 +90,11 @@
 <script src="components.js"></script>
 <script>
 function openMagazine() {
-  document.getElementById('email-gate').style.display = 'flex';
-}
-
+  if (localStorage.getItem('magazine-access-granted')) {
+    window.open('magazine.html', '_blank');
+  } else {
+    document.getElementById('email-gate').style.display = 'flex';
+  }
 function handleMagazineAccess(e) {
   e.preventDefault();
   const email = e.target.email.value;
@@ -102,6 +104,7 @@ function handleMagazineAccess(e) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams({ 'form-name': 'magazine-access', email }).toString()
     });
+    localStorage.setItem('magazine-access-granted', 'true');
     document.getElementById('email-gate').style.display = 'none';
     window.open('magazine.html', '_blank');
   }
