@@ -1,7 +1,19 @@
 {
   "partners": [
-    { "name": "[Partner Organisation Name]", "logo": "", "website": "" },
-    { "name": "[Partner Organisation Name]", "logo": "", "website": "" },
-    { "name": "[Partner Organisation Name]", "logo": "", "website": "" }
+    {
+      "name": "ISCEA",
+      "logo": "/images/uploads/iscea_logo.jpg",
+      "website": "https://www.iscea.org"
+    },
+    {
+      "name": "Star Shine Shipping & Logistics",
+      "logo": "/images/uploads/images-3.jpeg",
+      "website": "https://sssc-eg.com"
+    },
+    {
+      "name": "Castor Vali",
+      "logo": "/images/uploads/screenshot-2026-04-26-at-11.58.23 p.m..png",
+      "website": ""
+    }
   ]
 }
