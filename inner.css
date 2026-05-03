@@ -203,4 +203,41 @@
 @keyframes loadPulse {
   0%, 100% { opacity: 0.3; width: 60px; }
   50% { opacity: 1; width: 120px; }
+/* ── INNER PAGES MOBILE ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .about-mission { padding: 2.5rem 1.2rem; }
+  .about-mission-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .about-stat-block { grid-template-columns: 1fr 1fr; }
+  .about-pillars { padding: 2.5rem 1.2rem; }
+  .pillars-grid { grid-template-columns: 1fr; }
+  .pillar-card { border-right: none !important; }
+  .about-cta-strip { padding: 2.5rem 1.2rem; }
+  .about-cta-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+
+  .issues-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
+  .insights-page-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
+  .insight-page-card:first-child { grid-column: span 1; }
+
+  .advisory-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
+  .advisory-card:nth-child(3n) { border-right: none; }
+
+  .events-list { padding: 1.5rem 1.2rem; }
+  .event-row { grid-template-columns: 70px 1fr; gap: 1rem; }
+  .event-city, .event-type { display: none; }
+
+  .register-section { padding: 2.5rem 1.2rem; }
+  .register-form { grid-template-columns: 1fr; }
+  .form-full { grid-column: span 1; }
+
+  .awards-hero { padding: 110px 1.2rem 40px; }
+  .awards-hero h1 { font-size: 2.5rem; }
+  .awards-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
+  .award-card:last-child.award-lifetime { grid-column: span 1; flex-direction: column; gap: 1rem; }
+
+  .partners-grid { grid-template-columns: 1fr 1fr; padding: 1.5rem 1.2rem; }
+  .partner-card:nth-child(odd) { border-right: 0.5px solid rgba(0,0,0,0.08); }
+  .partner-card:nth-child(even) { border-right: none; }
+
+  .email-gate-box { padding: 2rem 1.5rem; }
+  .email-gate-box h2 { font-size: 1.4rem; }
 }
