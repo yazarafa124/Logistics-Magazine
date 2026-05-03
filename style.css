@@ -495,4 +495,65 @@ footer {
 @media (max-width: 600px) {
   .footer-grid { grid-template-columns: 1fr; }
   footer { padding: 3rem 1.5rem 2rem; }
+/* ── MOBILE FIXES ─────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root { --nav-height: 100px; }
+
+  .top-bar { height: 56px; }
+  .top-bar.hidden { transform: translateY(-56px); }
+  .top-bar-inner { padding: 0 1.2rem; }
+  .top-bar-logo img { height: 30px; }
+  .top-bar-links { display: none; }
+
+  nav { top: 56px; padding: 0 1.2rem; height: 44px; }
+  nav.hidden { transform: translateY(calc(-44px - 56px)); }
+  .nav-links, .nav-cta { display: none; }
+  .nav-hamburger { display: flex; }
+  .mobile-nav { top: 100px; }
+
+  .page-header { padding: 110px 1.2rem 40px; }
+  .page-header h1 { font-size: 2.2rem; }
+  .page-header p { font-size: 1rem; }
+
+  .hero { padding-top: 100px; }
+  .hero-inner { grid-template-columns: 1fr; min-height: auto; }
+  .hero-portrait { display: none; }
+  .hero-editorial { padding: 2rem 1.2rem; }
+  .hero-editorial::before { display: none; }
+  .hero-headline { font-size: 1.4rem; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost { width: 100%; text-align: center; }
+  .hero-newsletter { max-width: 100%; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-input { border-right: 0.5px solid var(--border); }
+  .newsletter-btn { width: 100%; }
+
+  .stats-bar { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat-divider { display: none; }
+  .stat-value { font-size: 1.3rem; }
+
+  .about-strip { padding: 2.5rem 1.2rem; }
+  .about-strip-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+  .insights-section { padding: 2.5rem 1.2rem; }
+  .insights-grid { grid-template-columns: 1fr; }
+  .insight-featured { grid-column: span 1; }
+
+  .issues-preview { padding: 2.5rem 1.2rem; }
+  .issues-preview-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .issues-preview-grid { grid-template-columns: 1fr; }
+
+  .awards-teaser { padding: 2.5rem 1.2rem; }
+  .awards-teaser-inner { grid-template-columns: 1fr; gap: 2rem; }
+
+  .advisory-teaser { padding: 2.5rem 1.2rem; }
+  .advisory-preview-grid { grid-template-columns: 1fr; }
+
+  footer { padding: 2.5rem 1.2rem 2rem; }
+  .footer-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+  body { cursor: auto; }
+  .cursor, .cursor-follower { display: none; }
 }
