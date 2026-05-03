@@ -857,4 +857,29 @@
   .newsletter-form { flex-direction: column; }
   .newsletter-input { border-right: 0.5px solid var(--border); }
 }
-
+/* ── HERO MOBILE WHITE SECTION ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-editorial {
+    background: #F9F9F7;
+  }
+  .hero-headline { color: #0A0A0A; }
+  .hero-headline em { color: #0A0A0A; }
+  .byline-name { color: #0A0A0A; }
+  .byline-sep { color: #555; }
+  .byline-title { color: #555; }
+  .hero-excerpt { color: #444; }
+  .kicker-text { color: #25380E; }
+  .hero-kicker .kicker-line { background: #25380E; }
+  .hero-newsletter {
+    border-color: rgba(37,56,14,0.3);
+    background: rgba(37,56,14,0.06);
+  }
+  .newsletter-label { color: #25380E; }
+  .newsletter-input {
+    background: #fff;
+    border-color: rgba(0,0,0,0.15);
+    color: #0A0A0A;
+  }
+  .newsletter-input::placeholder { color: #aaa; }
+  .newsletter-sub { color: #777; }
+}
