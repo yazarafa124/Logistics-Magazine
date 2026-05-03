@@ -241,3 +241,12 @@
   .email-gate-box { padding: 2rem 1.5rem; }
   .email-gate-box h2 { font-size: 1.4rem; }
 }
+/* ── CONTACT PAGE MOBILE ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  section > div[style*="grid-template-columns:1fr 1fr"] {
+    display: block !important;
+  }
+  section > div[style*="grid-template-columns:1fr 1fr"] > div {
+    width: 100% !important;
+    margin-bottom: 2rem;
+  }
