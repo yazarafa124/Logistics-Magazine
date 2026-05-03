@@ -250,3 +250,7 @@
     width: 100% !important;
     margin-bottom: 2rem;
   }
+@media (max-width: 768px) {
+  .award-subtitle { color: #c4a95a !important; }
+  .award-card { padding: 2rem 1.5rem; }
+}
