@@ -557,3 +557,15 @@ footer {
   body { cursor: auto; }
   .cursor, .cursor-follower { display: none; }
 }
+  /* ── NAV MOBILE PANEL ─────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mobile-nav {
+    top: 100px;
+    padding: 1.5rem 1.2rem;
+  }
+  .mobile-nav a {
+    font-size: 1.4rem;
+    padding: 0.9rem 0;
+  }
+  .mobile-nav.open { display: flex; }
+}
