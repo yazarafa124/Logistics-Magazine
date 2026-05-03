@@ -568,4 +568,16 @@ footer {
     padding: 0.9rem 0;
   }
   .mobile-nav.open { display: flex; }
+  /* ── NAV Z-INDEX FIX ──────────────────────────────────────────────────────── */
+.top-bar { z-index: 200; }
+nav { z-index: 199; }
+.mobile-nav { z-index: 198; }
+
+/* ── ISSUES PREVIEW BUTTON FIX ────────────────────────────────────────────── */
+.issues-preview-header .btn-ghost {
+  color: #0A0A0A;
+  border-color: rgba(0,0,0,0.2);
+}
+.issues-preview-header .btn-ghost:hover {
+  border-color: #0A0A0A;
 }
