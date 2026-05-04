@@ -188,12 +188,11 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.remove('hidden'); });
   }, { threshold: 0.08 });
   reveals.forEach(el => observer.observe(el));
-
-  const hamburger = document.querySelector('.nav-hamburger');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-  }
+document.addEventListener('click', (e) => {
+    if (e.target.closest('.nav-hamburger')) {
+      document.querySelector('.mobile-nav')?.classList.toggle('open');
+    }
+  });
 
   const path = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(a => {
