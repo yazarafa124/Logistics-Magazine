@@ -1,11 +1,8 @@
-/* ── INNER PAGE SHARED STYLES ─────────────────────────────────────────────── */
-
 .page-header { background: #0A0A0A; }
 .page-header em { font-style: italic; color: rgba(249,249,247,0.5); }
 .page-header h1 { color: #F9F9F7; }
 .page-header p { color: rgba(249,249,247,0.55); }
 
-/* ── ABOUT ───────────────────────────────────────────────────────────────── */
 .about-mission { padding: 6rem 3rem; background: #F9F9F7; }
 .about-mission-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 .about-col h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; color: #0A0A0A; }
@@ -36,18 +33,16 @@
 .about-cta-strip .btn-primary { background: #F9F9F7; color: #25380E; white-space: nowrap; flex-shrink: 0; }
 .about-cta-strip .btn-primary:hover { background: #fff; }
 
-/* ── ISSUES PAGE ──────────────────────────────────────────────────────────── */
 .issues-grid { padding: 4rem 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(0,0,0,0.08); }
-.issue-card { aspect-ratio: 2/3; padding: 2.5rem; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; cursor: none; transition: filter 0.3s; }
+.issue-card { aspect-ratio: 2/3; padding: 2.5rem; display: flex; flex-direction: column; justify-content: flex-end; position: relative; overflow: hidden; cursor: pointer; transition: filter 0.3s; }
 .issue-card:hover { filter: brightness(1.2); }
 .issue-card-content { position: relative; z-index: 1; }
 .issue-card .issue-number { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem; }
 .issue-card .issue-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: #F9F9F7; margin-bottom: 0.4rem; line-height: 1.3; }
 .issue-card .issue-date { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-bottom: 1rem; }
-.issue-btn { display: inline-block; font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #F9F9F7; background: #25380E; padding: 0.5rem 1rem; text-decoration: none; transition: background 0.2s; }
+.issue-btn { display: inline-block; font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: #F9F9F7; background: #25380E; padding: 0.5rem 1rem; text-decoration: none; transition: background 0.2s; border: none; cursor: pointer; }
 .issue-btn:hover { background: #3a5518; }
 
-/* ── INSIGHTS PAGE ────────────────────────────────────────────────────────── */
 .insights-page-grid { padding: 4rem 3rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; border-top: 0.5px solid rgba(0,0,0,0.08); background: #F9F9F7; }
 .insight-page-card { padding: 2.5rem; border-right: 0.5px solid rgba(0,0,0,0.08); border-bottom: 0.5px solid rgba(0,0,0,0.08); background: #F9F9F7; display: flex; flex-direction: column; gap: 0.8rem; transition: background 0.2s; }
 .insight-page-card:hover { background: #EFEFEB; }
@@ -65,7 +60,6 @@
 .insight-page-card:first-child .insight-link { color: var(--green-bright); }
 .insight-page-card:first-child:hover { background: #111; }
 
-/* ── ADVISORY PAGE ────────────────────────────────────────────────────────── */
 .advisory-grid { padding: 4rem 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #F9F9F7; border-top: 0.5px solid rgba(0,0,0,0.08); }
 .advisory-card { padding: 2.5rem; border-right: 0.5px solid rgba(0,0,0,0.08); border-bottom: 0.5px solid rgba(0,0,0,0.08); background: #fff; display: flex; flex-direction: column; gap: 1rem; transition: background 0.2s; }
 .advisory-card:hover { background: #F5F5F1; }
@@ -77,185 +71,11 @@
 .advisory-card-li { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888; text-decoration: none; border: 0.5px solid rgba(0,0,0,0.12); padding: 0.4rem 0.8rem; transition: background 0.2s, color 0.2s; width: fit-content; margin-top: auto; }
 .advisory-card-li:hover { background: #0a66c2; color: #fff; border-color: #0a66c2; }
 
-/* ── EVENTS PAGE ──────────────────────────────────────────────────────────── */
 .events-list { padding: 4rem 3rem; border-top: 0.5px solid rgba(0,0,0,0.08); background: #F9F9F7; }
-.event-row { display: grid; grid-template-columns: 100px 140px 1fr auto; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 0.5px solid rgba(0,0,0,0.08); transition: background 0.2s, padding 0.2s; cursor: none; }
+.event-row { display: grid; grid-template-columns: 100px 140px 1fr auto; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 0.5px solid rgba(0,0,0,0.08); transition: background 0.2s, padding 0.2s; }
 .event-row:hover { background: #EFEFEB; padding-left: 1rem; }
 .event-date { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #0A0A0A; }
 .event-city { font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: #25380E; }
 .event-info h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; color: #0A0A0A; margin-bottom: 0.3rem; }
 .event-info p { font-size: 0.82rem; color: #777; line-height: 1.5; }
-.event-type { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: #F9F9F7; background: #25380E; padding: 0.3rem 0.8rem; white-space: nowrap; }
-
-.register-section { padding: 5rem 3rem; background: #0A0A0A; border-top: 0.5px solid rgba(255,255,255,0.05); }
-.register-inner { max-width: 700px; }
-.register-inner h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; color: #F9F9F7; }
-.register-inner p { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: rgba(249,249,247,0.5); margin-bottom: 2rem; }
-.register-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); border: 0.5px solid rgba(255,255,255,0.06); margin-bottom: 1px; }
-.form-field { background: #111; padding: 1rem 1.2rem; display: flex; flex-direction: column; gap: 0.3rem; }
-.form-field label { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(249,249,247,0.3); }
-.form-field input, .form-field select { background: transparent; border: none; color: #F9F9F7; font-family: 'Jost', sans-serif; font-size: 0.9rem; outline: none; padding: 0; }
-.form-field select option { background: #1a1a1a; }
-.form-full { grid-column: span 2; }
-.form-submit { background: #111; padding: 1.2rem; border-top: 0.5px solid rgba(255,255,255,0.06); display: flex; justify-content: flex-end; }
-
-/* ── AWARDS PAGE ──────────────────────────────────────────────────────────── */
-.awards-hero { padding: 180px 3rem 80px; background: linear-gradient(135deg, #0A0A0A 0%, #1a2e10 100%); border-bottom: 0.5px solid rgba(37,56,14,0.3); position: relative; overflow: hidden; }
-.awards-hero::before { content: 'GOLD LIST'; position: absolute; right: -2rem; top: 50%; transform: translateY(-50%); font-family: 'Playfair Display', serif; font-size: 12rem; font-weight: 900; color: rgba(196,169,90,0.04); white-space: nowrap; pointer-events: none; letter-spacing: 0.1em; }
-.awards-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 700; line-height: 1; max-width: 700px; margin-bottom: 1rem; color: #F9F9F7; }
-.awards-hero .gold-accent { color: var(--gold); }
-.awards-hero p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: rgba(249,249,247,0.5); max-width: 560px; line-height: 1.7; }
-
-.awards-grid { padding: 4rem 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #F9F9F7; border-top: 0.5px solid rgba(0,0,0,0.08); }
-.award-card { padding: 3rem 2.5rem; border-right: 0.5px solid rgba(0,0,0,0.08); border-bottom: 0.5px solid rgba(0,0,0,0.08); background: #fff; position: relative; transition: background 0.2s; }
-.award-card:hover { background: #F5F5F1; }
-.award-card:nth-child(3n) { border-right: none; }
-.award-card:last-child.award-lifetime { grid-column: span 3; border-right: none; background: #0A0A0A; display: flex; align-items: center; gap: 4rem; }
-.award-card:last-child.award-lifetime .award-title { color: #F9F9F7; }
-.award-card:last-child.award-lifetime .award-desc { color: rgba(249,249,247,0.4); }
-.award-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: rgba(196,169,90,0.12); line-height: 1; margin-bottom: 1rem; }
-.award-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-.award-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: #0A0A0A; margin-bottom: 0.3rem; }
-.award-subtitle { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-.award-desc { font-size: 0.82rem; color: #777; line-height: 1.6; }
-.award-nominate { display: inline-block; margin-top: 1.5rem; font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold); padding: 0.4rem 0.9rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
-.award-nominate:hover { background: var(--gold); color: #0A0A0A; }
-
-/* ── PARTNERS PAGE ────────────────────────────────────────────────────────── */
-.partners-grid { padding: 5rem 3rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: #F9F9F7; border-top: 0.5px solid rgba(0,0,0,0.08); }
-.partner-card { padding: 3rem; border-right: 0.5px solid rgba(0,0,0,0.08); border-bottom: 0.5px solid rgba(0,0,0,0.08); background: #fff; display: flex; flex-direction: column; gap: 1rem; align-items: center; text-align: center; transition: background 0.2s; }
-.partner-card:hover { background: #F5F5F1; }
-.partner-card:nth-child(3n) { border-right: none; }
-.partner-logo-placeholder { width: 80px; height: 80px; background: #f0f0ec; border: 0.5px solid rgba(0,0,0,0.08); display: flex; align-items: center; justify-content: center; }
-.partner-logo-placeholder span { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #25380E; }
-.partner-name { font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; color: #0A0A0A; }
-
-/* RESPONSIVE INNER */
-@media (max-width: 900px) {
-  .about-mission { padding: 4rem 1.5rem; }
-  .about-mission-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .about-pillars { padding: 3rem 1.5rem; }
-  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-  .pillar-card:nth-child(2) { border-right: none; }
-  .about-cta-strip { padding: 4rem 1.5rem; }
-  .about-cta-inner { flex-direction: column; align-items: flex-start; }
-  .issues-grid { padding: 2rem 1.5rem; grid-template-columns: repeat(2, 1fr); }
-  .insights-page-grid { padding: 2rem 1.5rem; grid-template-columns: 1fr; }
-  .insight-page-card:first-child { grid-column: span 1; }
-  .insight-page-card:first-child h3 { font-size: 1.3rem; }
-  .advisory-grid { padding: 2rem 1.5rem; grid-template-columns: repeat(2, 1fr); }
-  .advisory-card:nth-child(3n) { border-right: 0.5px solid rgba(0,0,0,0.08); }
-  .advisory-card:nth-child(even) { border-right: none; }
-  .events-list { padding: 2rem 1.5rem; }
-  .event-row { grid-template-columns: 80px 1fr; gap: 1rem; }
-  .event-city { display: none; }
-  .event-type { display: none; }
-  .register-section { padding: 3rem 1.5rem; }
-  .register-form { grid-template-columns: 1fr; }
-  .form-full { grid-column: span 1; }
-  .awards-grid { padding: 2rem 1.5rem; grid-template-columns: repeat(2, 1fr); }
-  .award-card:nth-child(3n) { border-right: 0.5px solid rgba(0,0,0,0.08); }
-  .award-card:nth-child(even) { border-right: none; }
-  .award-card:last-child.award-lifetime { grid-column: span 2; flex-direction: column; gap: 1rem; }
-  .partners-grid { padding: 3rem 1.5rem; grid-template-columns: repeat(2, 1fr); }
-  .partner-card:nth-child(3n) { border-right: 0.5px solid rgba(0,0,0,0.08); }
-  .partner-card:nth-child(even) { border-right: none; }
-}
-@media (max-width: 600px) {
-  .pillars-grid { grid-template-columns: 1fr; }
-  .pillar-card { border-right: none !important; }
-  .issues-grid { grid-template-columns: 1fr; }
-  .advisory-grid { grid-template-columns: 1fr; }
-  .awards-grid { grid-template-columns: 1fr; }
-  .award-card:last-child.award-lifetime { grid-column: span 1; }
-  .partners-grid { grid-template-columns: 1fr; }
-  .awards-hero { padding: 120px 1.5rem 60px; }
-}
-
-/* ── DYNAMIC ARTICLE LOADING ─────────────────────────────────────────────── */
-.articles-loading {
-  padding: 4rem 3rem;
-  color: #999;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.articles-empty {
-  padding: 4rem 3rem;
-  color: #aaa;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-}
-.article-loading {
-  padding: 2rem 0;
-  color: #999;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.8rem;
-}
-.loading-bar {
-  width: 60px;
-  height: 2px;
-  background: #25380E;
-  margin-bottom: 1rem;
-  animation: loadPulse 1s ease-in-out infinite;
-}
-@keyframes loadPulse {
-  0%, 100% { opacity: 0.3; width: 60px; }
-  50% { opacity: 1; width: 120px; }
-/* ── INNER PAGES MOBILE ───────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .about-mission { padding: 2.5rem 1.2rem; }
-  .about-mission-inner { grid-template-columns: 1fr; gap: 2rem; }
-  .about-stat-block { grid-template-columns: 1fr 1fr; }
-  .about-pillars { padding: 2.5rem 1.2rem; }
-  .pillars-grid { grid-template-columns: 1fr; }
-  .pillar-card { border-right: none !important; }
-  .about-cta-strip { padding: 2.5rem 1.2rem; }
-  .about-cta-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
-
-  .issues-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
-  .insights-page-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
-  .insight-page-card:first-child { grid-column: span 1; }
-
-  .advisory-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
-  .advisory-card:nth-child(3n) { border-right: none; }
-
-  .events-list { padding: 1.5rem 1.2rem; }
-  .event-row { grid-template-columns: 70px 1fr; gap: 1rem; }
-  .event-city, .event-type { display: none; }
-
-  .register-section { padding: 2.5rem 1.2rem; }
-  .register-form { grid-template-columns: 1fr; }
-  .form-full { grid-column: span 1; }
-
-  .awards-hero { padding: 110px 1.2rem 40px; }
-  .awards-hero h1 { font-size: 2.5rem; }
-  .awards-grid { grid-template-columns: 1fr; padding: 1.5rem 1.2rem; }
-  .award-card:last-child.award-lifetime { grid-column: span 1; flex-direction: column; gap: 1rem; }
-
-  .partners-grid { grid-template-columns: 1fr 1fr; padding: 1.5rem 1.2rem; }
-  .partner-card:nth-child(odd) { border-right: 0.5px solid rgba(0,0,0,0.08); }
-  .partner-card:nth-child(even) { border-right: none; }
-
-  .email-gate-box { padding: 2rem 1.5rem; }
-  .email-gate-box h2 { font-size: 1.4rem; }
-}
-/* ── CONTACT PAGE MOBILE ──────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  section > div[style*="grid-template-columns:1fr 1fr"] {
-    display: block !important;
-  }
-  section > div[style*="grid-template-columns:1fr 1fr"] > div {
-    width: 100% !important;
-    margin-bottom: 2rem;
-  }
-@media (max-width: 768px) {
-  .award-subtitle { color: #c4a95a !important; }
-  .award-card { padding: 2rem 1.5rem; }
-/* ── AWARDS GOLD FIX ──────────────────────────────────────────────────────── */
-.award-subtitle {
-  color: #c4a95a !important;
-  display: block;
-  margin-bottom: 0.8rem;
-}
+.event-type { font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; colo
