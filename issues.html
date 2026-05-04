@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
     div.style.backgroundPosition = 'center top';
     div.style.cursor = 'pointer';
     div.onclick = openMagazine;
-    div.innerHTML = '<div class="issue-card-content"><div class="issue-number">' + iss.issue + '</div><div class="issue-title">' + iss.title + '</div><div class="issue-date">' + iss.date + '</div><button onclick="event.stopPropagation();openMagazine()" class="issue-btn">Read Now</button></div>';
+    div.innerHTML = '<div class="issue-card-content"><button onclick="event.stopPropagation();openMagazine()" class="issue-btn">Read Now</button></div>';
     grid.appendChild(div);
   });
 });
